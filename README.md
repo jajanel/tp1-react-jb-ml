@@ -1,8 +1,25 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# TP1 d'Application Web II
 
-Currently, two official plugins are available:
+Magnifique SPA de critique d'oiseaux par Maek Lorman et Janelle Bédard
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+
+## Ce projet est pour:
+
+- Cours 420-5C6-LI
+
+- Département d'informatique - Cégep Limoilou - Automne 2024
+
+
+
+![Logo](https://allthatsinteresting.com/wordpress/wp-content/uploads/2020/08/shoebill-pelican.jpg)
+
+
+## Auteurs
+
+- [@jajanel](https://github.com/jajanel)
+- [@Alakazouu](https://github.com/Alakazouu)
+
+
