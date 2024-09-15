@@ -27,7 +27,7 @@ function App() {
                     {
                         oiseauxFiltre.map((oiseau) => {
                             return (
-                                <div className="col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center" key={oiseau.idOiseau}>
+                                <div className="col-xl-4 col-xxl-3 col-md-6 col-lg-6 align-content-center" key={oiseau.idOiseau}>
                                     <CarteProduit
                                         categorie={oiseau.categorie}
                                         race={oiseau.race}
