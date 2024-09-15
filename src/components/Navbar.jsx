@@ -38,19 +38,19 @@ export default function Navbar({ surChangementCategorie }) {
                                 Statistiques
                             </button>
                             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                <li><a className="dropdown-item" onClick={() => handleChoixCategorie('poule')}>Poules</a></li>
+                                <li><a className="dropdown-item">Poules</a></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item" onClick={() => handleChoixCategorie('canard')}>Canards</a></li>
+                                <li><a className="dropdown-item" >Canards</a></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item" onClick={() => handleChoixCategorie('oie')}>Oies</a></li>
+                                <li><a className="dropdown-item" >Oies</a></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item" onClick={() => handleChoixCategorie('dinde')}>Dindes</a></li>
+                                <li><a className="dropdown-item" >Dindes</a></li>
                             </ul>
                         </div>
                     </div>
