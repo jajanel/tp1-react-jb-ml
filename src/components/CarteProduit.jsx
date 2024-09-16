@@ -1,7 +1,7 @@
 export default function CarteProduit({srcImage, race, categorie, prix}) {
     return (
         <>
-                        <div className="card m-3 border-primary border-2 bg-secondary">
+                        <div className="card m-3 border-primary border-2 bg-secondary shadow">
 
                             <img src={srcImage} className="card-img-top" alt="..."/>
                             <div className="card-body">
@@ -11,8 +11,8 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
                                 </div>
                             </div>
                             <div className="btn-wrapper text-center d-flex justify-content-between m-3">
-                                <a className="btn btn-sm btn-success">Voir description</a>
-                                <a className="btn btn-sm btn-info">Voir critiques</a>
+                                <a className="btn btn-sm btn-success shadow">Voir description</a>
+                                <a className="btn btn-sm btn-info shadow">Voir critiques</a>
                             </div>
                             <div className="card-footer">
                                 <div className="btn-wrapper text-center d-flex justify-content-between ">
