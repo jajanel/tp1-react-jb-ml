@@ -2,7 +2,7 @@ import {useState} from "react";
 import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 
-export default function CarteProduit({srcImage, race, categorie, prix, datePublication, origine}) {
+export default function CarteProduit({srcImage, race, categorie, prix, datePublication, origine, id}) {
 
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
@@ -39,6 +39,7 @@ export default function CarteProduit({srcImage, race, categorie, prix, datePubli
                                     srcImage={srcImage}
                                     date={datePublication}
                                     origine={origine}
+                                    id={id}
                                     estOuvertDescription={estOuvertDescription}
                                     toggleModalDescription={toggleModalDescription}/>
                                 <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>

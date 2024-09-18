@@ -1,4 +1,4 @@
-export default function DescriptionOiseau({estOuvertDescription, toggleModalDescription, srcImage, origine, race, prix, categorie, date}) {
+export default function DescriptionOiseau({estOuvertDescription, toggleModalDescription, srcImage, origine, race, prix, categorie, date, id}) {
 
 
     return (
@@ -27,6 +27,14 @@ export default function DescriptionOiseau({estOuvertDescription, toggleModalDesc
                                     <label htmlFor="race" className="form-label">Race</label>
                                     <p>{race}</p>
                                 </div>
+                                {id ?
+                                    <>
+                                        <div className={"pb-4"}>
+                                            <label className="form-label">ID</label>
+                                            <p>{id}</p>
+                                        </div>
+                                    </>
+                                    : ""}
                                 <div className={"pb-4"}>
 
                                     <label htmlFor="prix" className="form-label">Prix</label>
