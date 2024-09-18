@@ -1,4 +1,4 @@
-export default function DescriptionOiseau({estOuvertDescription, toggleModalDescription}) {
+export default function DescriptionOiseau({estOuvertDescription, toggleModalDescription, srcImage}) {
 
 
     return (
@@ -8,9 +8,15 @@ export default function DescriptionOiseau({estOuvertDescription, toggleModalDesc
 
                 {estOuvertDescription && (<div className="popup">
                     <div className={"card border-0 "}>
-                        <p>Description</p>
+                        <h1>Description</h1>
                         <div className={"row"}>
-                            <div className={"btn-wrapper text-center d-flex justify-content-evenly"}>
+
+                        </div>
+                        <p>prix</p>
+                        <p>nom</p>
+                        <img src={srcImage} alt="..."/>
+                        <div className={"row"}>
+                        <div className={"btn-wrapper text-center d-flex justify-content-evenly"}>
                                 <button className={"btn btn-danger "} data-toggle="modal"
                                         onClick={toggleModalDescription}>Annuler
                                 </button>

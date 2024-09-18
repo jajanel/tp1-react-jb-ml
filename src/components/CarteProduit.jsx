@@ -32,7 +32,7 @@ export default function CarteProduit({srcImage, race, categorie}) {
                             </div>
                             <div className="btn-wrapper text-center d-flex justify-content-center m-3">
                                 <a className="btn btn-sm btn-success shadow boutonCarte me-4" onClick={toggleModalDescription} > description</a>
-                                <DescriptionOiseau estOuvertDescription={estOuvertDescription} toggleModalDescription={toggleModalDescription}/>
+                                <DescriptionOiseau srcImage={srcImage} estOuvertDescription={estOuvertDescription} toggleModalDescription={toggleModalDescription}/>
                                 <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                                 <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>
 
