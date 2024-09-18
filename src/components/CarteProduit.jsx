@@ -6,6 +6,7 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
 
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
+    const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
 
 
     const toggleModalDescription = () => {
@@ -16,9 +17,10 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
         setEstOuvertCritique(!estOuvertCritique);
     };
 
-    const l = () => {
-        console.log("m jimju u ju 8mju 8n8 u")
+    const toggleModalConfirmation = () => {
+        setEstOuvertCritique(!estOuvertCritique);
     };
+
 
     return (
         <>
@@ -27,14 +29,16 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
                             <img src={srcImage} className="card-img-top" alt="..."/>
                             <div className="card-body">
                                 <h4 className="card-title text-uppercase">{categorie} {race}</h4>
-                                <div className="text-center d-flex justify-content-between ">
-                                    <p className="card-text">{prix} $</p>
-                                </div>
                             </div>
-                            <div className="btn-wrapper text-center d-flex justify-content-between m-3">
-                                <a className="btn btn-sm btn-success shadow" onClick={toggleModalDescription} >Voir description</a>
-                                <DescriptionOiseau estOuvertDescription={estOuvertDescription} toggleModalDescription={toggleModalDescription}/>
-                                <a className="btn btn-sm btn-info shadow" onClick={toggleModalCritique}>Voir critiques</a>
+                            <div className="btn-wrapper text-center d-flex justify-content-center m-3">
+                                <a className="btn btn-sm btn-success shadow boutonCarte me-4" onClick={toggleModalDescription} > description</a>
+                                <DescriptionOiseau
+                                    nom={categorie + " " + race}
+                                    prix={prix}
+                                    srcImage={srcImage}
+                                    estOuvertDescription={estOuvertDescription}
+                                    toggleModalDescription={toggleModalDescription}/>
+                                <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                                 <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>
 
                             </div>
