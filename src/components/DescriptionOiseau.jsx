@@ -21,7 +21,7 @@ export default function DescriptionOiseau({estOuvertDescription, toggleModalDesc
                             <div className={"col mx-5"}>
                                 <div className={"pb-4"}>
                                     <label className="form-label">Catégorie</label>
-                                    <p>{categorie}</p>
+                                    <p className={"form-control disabled"}>{categorie}</p>
                                 </div>
                                 <div className={"pb-4"}>
                                     <label htmlFor="race" className="form-label">Race</label>
