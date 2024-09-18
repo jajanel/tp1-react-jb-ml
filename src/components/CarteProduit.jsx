@@ -1,4 +1,25 @@
+import {useState} from "react";
+import DescriptionOiseau from "./DescriptionOiseau.jsx";
+import MaCritique from "./MaCritique.jsx";
+
 export default function CarteProduit({srcImage, race, categorie, prix}) {
+
+    const [estOuvertDescription, setEstOuvertDescription] = useState(false);
+    const [estOuvertCritique, setEstOuvertCritique] = useState(false);
+
+
+    const toggleModalDescription = () => {
+        setEstOuvertDescription(!estOuvertDescription);
+    };
+
+    const toggleModalCritique = () => {
+        setEstOuvertCritique(!estOuvertCritique);
+    };
+
+    const l = () => {
+        console.log("m jimju u ju 8mju 8n8 u")
+    };
+
     return (
         <>
                         <div className="card m-3 border-primary border-2 bg-secondary shadow">
@@ -11,8 +32,11 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
                                 </div>
                             </div>
                             <div className="btn-wrapper text-center d-flex justify-content-between m-3">
-                                <a className="btn btn-sm btn-success shadow">Voir description</a>
-                                <a className="btn btn-sm btn-info shadow">Voir critiques</a>
+                                <a className="btn btn-sm btn-success shadow" onClick={toggleModalDescription} >Voir description</a>
+                                <DescriptionOiseau estOuvertDescription={estOuvertDescription} toggleModalDescription={toggleModalDescription}/>
+                                <a className="btn btn-sm btn-info shadow" onClick={toggleModalCritique}>Voir critiques</a>
+                                <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>
+
                             </div>
                             <div className="card-footer">
                                 <div className="btn-wrapper text-center d-flex justify-content-between ">
