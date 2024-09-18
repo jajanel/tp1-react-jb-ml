@@ -11,7 +11,7 @@ export default function DescriptionOiseau({estOuvertDescription, toggleModalDesc
                         <h1>Description</h1>
                         <div className={"row"}>
                             <div className={"col-xl-3 col-xxl-3 col-md-6 col-lg-6 align-content-center"}>
-                                <img src={srcImage} alt="..."/>
+                                <img className={"rounded-3"} src={srcImage} alt="..."/>
                             </div>
                             <div className={"col"}>
                                 <p>{nom}</p>
@@ -21,11 +21,7 @@ export default function DescriptionOiseau({estOuvertDescription, toggleModalDesc
                         <div className={"row"}>
                             <div className={"btn-wrapper text-center d-flex justify-content-evenly"}>
                                 <button className={"btn btn-danger "} data-toggle="modal"
-                                        onClick={toggleModalDescription}>Annuler
-                                </button>
-                                {/*Le bouton "Ajouter" doit trigger l'action de sérialisation qui ajoute l'oiso au "JSON" */}
-                                <button className={"btn btn-success"} data-toggle="modal"
-                                        onClick={toggleModalDescription}>Ajouter
+                                        onClick={toggleModalDescription}>Fermer
                                 </button>
                             </div>
                         </div>
