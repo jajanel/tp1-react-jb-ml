@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import CarteProduit from "./components/CarteProduit.jsx";
 import { dataOiseau } from "./assets/oiseaux.js";
-import BackgroundPopUp from "./components/BackgroundPopUp.jsx";
+import AjouterOiseau from "./components/AjouterOiseau.jsx";
 
 function App() {
     const [categorieSelectionne, setCategorieSelectionne] = useState("tous");
@@ -31,7 +31,7 @@ function App() {
                 <button className={"btn btn-sm btn-secondary"} onClick={toggleModal}>
                     Ajouter un oiseau
                 </button>
-                <BackgroundPopUp estOuvert={estOuvert} toggleModal={toggleModal} />
+                <AjouterOiseau estOuvert={estOuvert} toggleModal={toggleModal} />
             </div>
             <div className="container-fluid">
                 <div className="row">
