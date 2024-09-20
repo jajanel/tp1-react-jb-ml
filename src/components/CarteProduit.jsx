@@ -15,7 +15,7 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
         setEstOuvertDescription(!estOuvertDescription);
     };
 
-    const toggleModalModifierDescription = ()=>{
+    const toggleModalModifierDescription = () => {
         setEstOuvertModifierDescription(!estOuvertModifierDescrition);
     };
 
@@ -28,9 +28,8 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
     };
 
 
-    return (
-        <>
-                        <div className="card m-3 border-primary border-2 bg-secondary shadow">
+    return (<>
+            <div className="card m-3 border-primary border-2 bg-secondary shadow">
 
                 <img src={srcImage} className="card-img-top" alt="image d'oiseau"/>
                 <div className="card-body">
@@ -54,18 +53,18 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
 
                 </div>
                 <div className="card-footer">
-                    <div className="btn-wrapper text-center d-flex justify-content-between ">
+                    <div className="btn-wrapper text-center d-flex justify-content-between">
                         <p className="modal-title text-muted">Supprimer l'oiseau</p>
                         <button type="button" className="btn btn-dark text-white btn-sm"
                                 data-bs-dismiss="modal" onClick={toggleModalConfirmation}>
                             <span aria-hidden="true" onClick={toggleModalConfirmation}>&times;</span>
 
                         </button>
-                        <ConfirmationSupression estOuvertConfirmation={estOuvertConfirmation} toggleModalConfirmation={toggleModalConfirmation}/>
+                        <ConfirmationSupression estOuvertConfirmation={estOuvertConfirmation}
+                                                toggleModalConfirmation={toggleModalConfirmation}/>
 
                     </div>
                 </div>
             </div>
-        </>
-    );
+        </>);
 }
