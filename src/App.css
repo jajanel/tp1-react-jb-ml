@@ -13,6 +13,12 @@
     border: #000000 solid 2px;
 }
 
-.boutonCarte{
+.boutonCarte {
     width: 45%;
+}
+
+.img-confirmation {
+    width: 40%;
+    height: 20%;
+    margin: auto;
 }
