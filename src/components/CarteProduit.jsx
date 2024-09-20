@@ -8,10 +8,15 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
     const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
+    const [estOuvertModifierDescrition, setEstOuvertModifierDescription] = useState(false);
 
 
     const toggleModalDescription = () => {
         setEstOuvertDescription(!estOuvertDescription);
+    };
+
+    const toggleModalModifierDescription = ()=>{
+        setEstOuvertModifierDescription(!estOuvertModifierDescrition);
     };
 
     const toggleModalCritique = () => {
