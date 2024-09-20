@@ -50,7 +50,12 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
                         toggleModalDescription={toggleModalDescription}
                         toggleModalModifierDescription={toggleModalModifierDescription}/>
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
-                    <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>
+                    <MaCritique
+                        estOuvertCritique={estOuvertCritique}
+                        toggleModalCritique={toggleModalCritique}
+                        race={race}
+                        categorie={categorie}
+                        id={id}/>
 
                 </div>
                 <div className="card-footer">
