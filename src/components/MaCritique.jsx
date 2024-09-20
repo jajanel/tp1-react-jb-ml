@@ -1,4 +1,4 @@
-export default function MaCritique({estOuvertCritique, toggleModalCritique}) {
+export default function MaCritique({estOuvertCritique, toggleModalCritique, race, categorie, id}) {
     return (<>
             <div>
                 {estOuvertCritique && (
@@ -7,7 +7,7 @@ export default function MaCritique({estOuvertCritique, toggleModalCritique}) {
 
 
                             <div className={"row"}>
-                                <p>Critique</p>
+                                <p>Rédiger ma critique pour:</p>
                                 <div className={"btn-wrapper text-center d-flex justify-content-evenly"}>
                                     <button className={"btn btn-danger "} data-toggle="modal"
                                             onClick={toggleModalCritique}>Annuler

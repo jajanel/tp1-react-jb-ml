@@ -48,7 +48,8 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
                         date={datePublication}
                         srcImage={srcImage}
                         estOuvertDescription={estOuvertDescription}
-                        toggleModalDescription={toggleModalDescription}/>
+                        toggleModalDescription={toggleModalDescription}
+                        toggleModalModifierDescription={toggleModalModifierDescription}/>
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                     <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>
 
