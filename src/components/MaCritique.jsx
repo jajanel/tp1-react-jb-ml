@@ -7,7 +7,11 @@ export default function MaCritique({estOuvertCritique, toggleModalCritique, race
 
 
                             <div className={"row"}>
-                                <p>Rédiger ma critique pour: {categorie} {race} ({id})</p>
+                                <p>Rédiger ma critique pour: {categorie} {race} (ID #{id})</p>
+                                <p>Note:</p>
+                                <p>Tempérament:</p>
+                                <p>Beauté:</p>
+                                <p>Utilisation:</p>
                                 <div className={"btn-wrapper text-center d-flex justify-content-evenly"}>
                                     <button className={"btn btn-danger "} data-toggle="modal"
                                             onClick={toggleModalCritique}>Annuler
