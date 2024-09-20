@@ -3,7 +3,7 @@ import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
 
-export default function CarteProduit({srcImage, race, categorie, prix, origine, datePublication}, id) {
+export default function CarteProduit({srcImage, race, categorie, prix, origine, datePublication, id}) {
 
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
