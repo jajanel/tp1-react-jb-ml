@@ -3,7 +3,7 @@ import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
 
-export default function CarteProduit({srcImage, race, categorie, prix, origine, datePublication, id}) {
+export default function CarteProduit(props) {
 
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
@@ -31,22 +31,22 @@ export default function CarteProduit({srcImage, race, categorie, prix, origine, 
     return (<>
             <div className="card m-3 border-primary border-2 bg-secondary shadow">
 
-                <img src={srcImage} className="card-img-top" alt="image d'oiseau"/>
+                <img src={props.srcImage} className="card-img-top" alt="image d'oiseau"/>
                 <div className="card-body">
-                    <h4 className="card-title text-uppercase">{categorie} {race}</h4>
+                    <h4 className="card-title text-uppercase">{props.categorie} {props.race}</h4>
                 </div>
                 <div className="btn-wrapper text-center d-flex justify-content-center m-3">
                     <a className="btn btn-sm btn-success shadow boutonCarte me-4"
                        onClick={toggleModalDescription}> description</a>
                     <DescriptionOiseau
-                        id={id}
-                        categorie={categorie}
-                        race={race}
-                        prix={prix}
-                        origine={origine}
-                        date={datePublication}
-                        srcImage={srcImage}
-                        estOuvertDescription={estOuvertDescription}
+                        id={props.id}
+                        categorie={props.categorie}
+                        race={props.race}
+                        prix={props.prix}
+                        origine={props.origine}
+                        date={props.datePublication}
+                        srcImage={props.srcImage}
+                        estOuvertDescription={props.estOuvertDescription}
                         toggleModalDescription={toggleModalDescription}/>
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                     <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>

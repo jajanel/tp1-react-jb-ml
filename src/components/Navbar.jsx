@@ -1,7 +1,7 @@
-export default function Navbar({ surChangementCategorie }) {
+export default function Navbar(props) {
 
     const handleChoixCategorie = (categorieOiseau) => {
-        surChangementCategorie(categorieOiseau);
+        props.surChangementCategorie(categorieOiseau);
     };
 
     return (
@@ -42,15 +42,15 @@ export default function Navbar({ surChangementCategorie }) {
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item" >Canards</a></li>
+                                <li><a className="dropdown-item">Canards</a></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item" >Oies</a></li>
+                                <li><a className="dropdown-item">Oies</a></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item" >Dindes</a></li>
+                                <li><a className="dropdown-item">Dindes</a></li>
                             </ul>
                         </div>
                     </div>
