@@ -25,31 +25,31 @@ export default function DescriptionOiseau({estOuvertDescription, toggleModalDesc
                                 </div>
                                 <div className={"pb-4"}>
                                     <label htmlFor="race" className="form-label">Race</label>
-                                    <p>{race}</p>
+                                    <p className={"form-control disabled"}>{race}</p>
                                 </div>
                                 {id ?
                                     <>
                                         <div className={"pb-4"}>
                                             <label className="form-label">ID</label>
-                                            <p>{id}</p>
+                                            <p className={"form-control disabled"}>{id}</p>
                                         </div>
                                     </>
                                     : ""}
                                 <div className={"pb-4"}>
 
                                     <label htmlFor="prix" className="form-label">Prix</label>
-                                    <p>{prix} $</p>
+                                    <p className={"form-control disabled"}>{prix}</p>
                                 </div>
                                 <div className={"pb-4"}>
 
                                     <label className="form-label">Origine</label>
-                                    <p>{origine}</p>
+                                    <p className={"form-control disabled"}>{origine}</p>
                                 </div>
                                 <div className={"pb-4"}>
 
                                     <label className="form-label">Date de publication</label>
                                     <br/>
-                                    <p>{date}</p>
+                                    <p className={"form-control disabled"}>{date}</p>
                                 </div>
                             </div>
 
