@@ -38,7 +38,7 @@ function App() {
                     {oiseauxFiltre.map((oiseau) => (
                         <div className="col-xl-4 col-xxl-3 col-md-6 col-lg-6 align-content-center" key={oiseau.idOiseau}>
                             <CarteProduit
-                                id = {oiseau.id}
+                                id = {oiseau.idOiseau}
                                 categorie={oiseau.categorie}
                                 race={oiseau.race}
                                 origine={oiseau.origine}
