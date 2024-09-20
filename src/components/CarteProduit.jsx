@@ -3,7 +3,7 @@ import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
 
-export default function CarteProduit({srcImage, race, categorie, prix}) {
+export default function CarteProduit({srcImage, race, categorie, prix, origine, datePublication}) {
 
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
@@ -19,7 +19,7 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
     };
 
     const toggleModalConfirmation = () => {
-        setEstOuvertCritique(!estOuvertCritique);
+        setEstOuvertConfirmation(!estOuvertConfirmation);
     };
 
 
@@ -35,8 +35,11 @@ export default function CarteProduit({srcImage, race, categorie, prix}) {
                     <a className="btn btn-sm btn-success shadow boutonCarte me-4"
                        onClick={toggleModalDescription}> description</a>
                     <DescriptionOiseau
-                        nom={categorie + " " + race}
+                        categorie={categorie}
+                        race={race}
                         prix={prix}
+                        origine={origine}
+                        date={datePublication}
                         srcImage={srcImage}
                         estOuvertDescription={estOuvertDescription}
                         toggleModalDescription={toggleModalDescription}/>
