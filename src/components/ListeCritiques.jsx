@@ -14,17 +14,23 @@ export default function ListeCritiques(props) {
                     />
 
                     {/*Liste de toutes les critiques*/}
-                    <div className="card border-0">
+                    <div className="card border-0 my-4">
 
-                            <h5 className="d-flex justify-content-start"> Liste des critiques: </h5>
 
-                            {/*Ici il faut utiliser une .map sur les différentes critiques existante.*/}
-                            <div className="row text-start m-4">
-                                <div className="col col-11">
+                        <div className="row text-start m-4">
+                            <div className="col">
+                                <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
+                                <hr/>
+                                {/*Ici il faut utiliser une .map sur les différentes critiques existantes.*/}
+                                <div className="bg-light rounded-3 p-2 m-2">
+
+                                    <div className="pb-4">
+                                        <label className="form-label">ID</label>
+                                        <input type="" className="form-control" id="note" disabled/>
+                                    </div>
                                     <div className="pb-4">
                                         <label className="form-label">Note globale:</label>
-                                        <input
-                                            type="number" className="form-control" id="note" disabled/>
+                                        <input type="number" className="form-control" id="note" disabled/>
                                     </div>
                                     <div className="pb-4">
 
@@ -38,25 +44,29 @@ export default function ListeCritiques(props) {
                                     </div>
                                     <div className="pb-4">
 
-                                        <label className="form-label">Utilisation:</label>
-                                        <input
-                                            type="text" className="form-control" id="utilisation" disabled/>
+                                        <label className="form-label">Utilisation:</label> <input
+                                        type="text" className="form-control" id="utilisation" disabled/>
                                     </div>
                                 </div>
+                                <hr/>
                             </div>
+
+                        </div>
+
+
                     </div>
+
                     {/*Footer avec bouton pour annuler*/}
                     <div className="row">
                         <div className="btn-wrapper text-center d-flex justify-content-start modal-footer">
                             <button className="btn btn-danger " data-toggle="modal"
-                                    onClick={props.toggleModal}>Annuler
+                                    onClick={props.toggleModalCritique}>Fermer
                             </button>
                         </div>
                     </div>
 
 
-                </div>
-            )}
+                </div>)}
         </div>
     </>)
 
