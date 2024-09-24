@@ -46,7 +46,12 @@ export default function CarteProduit(props) {
                         toggleModalDescription={toggleModalDescription}
                     />
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
-                    <MaCritique estOuvertCritique={estOuvertCritique} toggleModalCritique={toggleModalCritique}/>
+                    <MaCritique
+                        id={props.id}
+                        categorie={props.categorie}
+                        race={props.race}
+                        estOuvertCritique={estOuvertCritique}
+                        toggleModalCritique={toggleModalCritique}/>
                 </div>
                 <div className="card-footer">
                     <div className="btn-wrapper text-center d-flex justify-content-between">
