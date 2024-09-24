@@ -25,6 +25,8 @@ export default function AjouterOiseau(props) {
                                         <div className="col mx-5">
                                             <div className="pb-4">
                                                 <label htmlFor="categorie" className="form-label">Catégorie</label>
+                                                {/*Ici il faut utiliser une .map sur les différentes catégories existante.
+                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
                                                 <select
                                                     className="form-select">
                                                     <option value="" selected>Choisir la catégorie de volaille</option>
@@ -47,6 +49,8 @@ export default function AjouterOiseau(props) {
                                             <div className="pb-4">
 
                                                 <label htmlFor="origine" className="form-label">Origine</label>
+                                                {/*Ici il faut utiliser une .map sur les différentes catégories existante.
+                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
                                                 <select
                                                     className="form-select">
                                                     <option value="" selected>Choisir la région d'origine</option>
@@ -87,5 +91,6 @@ export default function AjouterOiseau(props) {
                         </div>
                     )}
             </div>
-        </>)
+        </>
+    )
 }
