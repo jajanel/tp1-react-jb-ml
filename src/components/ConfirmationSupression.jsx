@@ -6,7 +6,7 @@ export default function ConfirmationSupression(props) {
                     props.estOuvertConfirmation &&
                     (<div className="popup">
                             <div className="card border-0 ">
-                                <row>
+                                <div className="row">
                                     <h2 className="my-3 card-title">Êtes-vous certain de vouloir supprimer cet oiseau
                                         ?</h2>
                                     <h3 className="text-danger my-3"> Cette action est définitive.</h3>
@@ -15,7 +15,7 @@ export default function ConfirmationSupression(props) {
                                     <img src={"src/assets/images/confirmation.png"} className="img-confirmation my-3"
                                          alt="are you sure ? Please reconsider your life choices as you may want to keep this bird."/>
                                     <hr/>
-                                </row>
+                                </div>
                                 <div className="row">
                                     <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
                                         <button className="btn btn-dark " data-toggle="modal"
