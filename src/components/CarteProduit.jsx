@@ -2,6 +2,7 @@ import {useState} from "react";
 import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
+import ListeCritiques from "./ListeCritiques.jsx";
 
 export default function CarteProduit(props) {
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
@@ -33,7 +34,8 @@ export default function CarteProduit(props) {
                     <h4 className="card-title text-uppercase">{props.categorie} {props.race}</h4>
                 </div>
                 <div className="btn-wrapper text-center d-flex justify-content-center m-3">
-                    <a className="btn btn-sm btn-success shadow boutonCarte me-4" onClick={toggleModalDescription}> description</a>
+                    <a className="btn btn-sm btn-success shadow boutonCarte me-4"
+                       onClick={toggleModalDescription}> description</a>
                     <DescriptionOiseau
                         id={props.id}
                         categorie={props.categorie}
@@ -46,12 +48,11 @@ export default function CarteProduit(props) {
                         toggleModalDescription={toggleModalDescription}
                     />
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
-                    <MaCritique
-                        id={props.id}
-                        categorie={props.categorie}
-                        race={props.race}
-                        estOuvertCritique={estOuvertCritique}
-                        toggleModalCritique={toggleModalCritique}/>
+                    <ListeCritiques id={props.id}
+                                    categorie={props.categorie}
+                                    race={props.race}
+                                    estOuvertCritique={estOuvertCritique}
+                                    toggleModalCritique={toggleModalCritique}/>
                 </div>
                 <div className="card-footer">
                     <div className="btn-wrapper text-center d-flex justify-content-between">
