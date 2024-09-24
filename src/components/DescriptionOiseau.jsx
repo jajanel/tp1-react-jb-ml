@@ -1,6 +1,6 @@
 export default function DescriptionOiseau(props) {
 
-
+// Changer le "disabled" par un context ou redux pour permettre la modification des champs selon le bouton modifier cliqué ou non.
     return (
 
         <>
@@ -13,25 +13,45 @@ export default function DescriptionOiseau(props) {
                                 </div>
                                 <div className={"card-body"}>
                                     <div className={"row"}>
-                                        <div className={"col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center"}>
+                                        <div className="col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center">
                                             <div className={"ajouterPhoto rounded-3"}>
                                                 <img src={props.srcImage} className={"card-img "}
                                                      alt={"image selectionnée par l'utilisateur"}/>
                                             </div>
-                                            <div className={"pb-4"}>
+                                            <div className={"pb-4 text-start"}>
                                                 <label className="form-label">ID</label>
-                                                <p>{props.id}</p>
+                                                <p className="form-control disabled">{props.id}</p>
                                             </div>
 
                                         </div>
-                                        <div className={"col mx-5"}>
+                                        <div className="col mx-5 text-start">
                                             <div className={"pb-4"}>
                                                 <label className="form-label">Catégorie</label>
-                                                <p className={"form-control disabled"}>{props.categorie}</p>
+                                                <select
+                                                    className="form-select" disabled>
+                                                    <option value="" selected>{props.categorie}</option>
+                                                    <hr/>
+                                                    {/*Ici il faut utiliser une .map sur les différentes catégories existante.
+                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
+                                                    <option value="">Poule</option>
+                                                    <option value="">Canard</option>
+                                                    <option value="">Oie</option>
+                                                    <option value="">Dinde</option>
+                                                </select>
                                             </div>
                                             <div className={"pb-4"}>
                                                 <label htmlFor="race" className="form-label">Race</label>
-                                                <p className={"form-control disabled"}>{props.race}</p>
+                                                <select
+                                                    className="form-select" disabled>
+                                                    <option selected> {props.race}</option>
+                                                    <hr/>
+                                                    {/*Ici il faut utiliser une .map sur les différentes catégories existante.
+                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
+                                                    <option value="">Poule</option>
+                                                    <option value="">Canard</option>
+                                                    <option value="">Oie</option>
+                                                    <option value="">Dinde</option>
+                                                </select>
                                             </div>
                                             <div className={"pb-4"}>
 
@@ -41,13 +61,26 @@ export default function DescriptionOiseau(props) {
                                             <div className={"pb-4"}>
 
                                                 <label className="form-label">Origine</label>
-                                                <p className={"form-control disabled"}>{props.origine}</p>
+                                                {/*Ici il faut utiliser une .map sur les différentes catégories existante.
+                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
+                                                <select
+                                                    className="form-select" disabled>
+                                                    <option value="" selected>{props.origine}</option>
+                                                    <hr/>
+                                                    <option value="afrique">Afrique</option>
+                                                    <option value="amerique">Amérique</option>
+                                                    <option value="europe">Europe</option>
+                                                    <option value="asie">Asie</option>
+                                                    <option value="oceanie">Océanie</option>
+                                                </select>
                                             </div>
                                             <div className={"pb-4"}>
 
                                                 <label className="form-label">Date de publication</label>
                                                 <br/>
-                                                <p className={"form-control disabled"}>{props.date}</p>
+                                                <input disabled type="date" className="form-control disabled"
+                                                       id="datePublication"
+                                                       name="datePublication" value={props.date}/>
                                             </div>
                                         </div>
 
