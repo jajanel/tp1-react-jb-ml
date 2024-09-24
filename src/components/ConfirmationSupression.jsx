@@ -11,7 +11,7 @@ export default function ConfirmationSupression(props) {
                                     <h3 className="text-danger my-3"> Cette action est définitive.</h3>
                                     <hr/>
                                     <div className="img-confirmation">
-                                    <img src={"src/assets/images/confirmation.png"} className="img-confirmation my-3 img-confirmation"
+                                    <img src={"src/assets/images/confirmation.png"} className=" my-3 img-confirmation"
                                          alt="est-ce que t'es vraiment vraiment certain ??"/>
                                     </div>
                                     <hr/>
