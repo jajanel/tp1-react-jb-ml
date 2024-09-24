@@ -7,13 +7,13 @@ export default function ConfirmationSupression(props) {
                     (<div className="popup">
                             <div className="card border-0 ">
                                 <div className="row">
-                                    <h2 className="my-3 card-title">Êtes-vous certain de vouloir supprimer cet oiseau
-                                        ?</h2>
+                                    <h2 className="my-3 card-title">Êtes-vous certain de vouloir supprimer cet oiseau ?</h2>
                                     <h3 className="text-danger my-3"> Cette action est définitive.</h3>
                                     <hr/>
-
-                                    <img src={"src/assets/images/confirmation.png"} className="img-confirmation my-3"
-                                         alt="are you sure ? Please reconsider your life choices as you may want to keep this bird."/>
+                                    <div className="img-confirmation">
+                                    <img src={"src/assets/images/confirmation.png"} className="img-confirmation my-3 img-confirmation"
+                                         alt="est-ce que t'es vraiment vraiment certain ??"/>
+                                    </div>
                                     <hr/>
                                 </div>
                                 <div className="row">
