@@ -1,5 +1,3 @@
-
-
 class Oiseau {
 
     constructor(id, categorie, race, prix, origine, date, src) {
