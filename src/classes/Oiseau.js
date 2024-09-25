@@ -2,7 +2,7 @@ import {dataOiseau} from "../assets/oiseaux.js";
 
 class Oiseau {
 
-    List Oiseaux = dataOiseau;
+
 
     constructor(id, categorie, race, prix, origine, date, src) {
         this.idOiseau = id;
@@ -14,20 +14,20 @@ class Oiseau {
         this.srcImage = src;
     }
 
-    void ajouerOiseau(){
-
+    ajouerOiseau(oiseau){
+        dataOiseau.add(oiseau);
     }
 
-    void getListeOiseau(){
-
+    getListeOiseau(){
+        return dataOiseau;
     }
 
-    void tuerOiseau(Oiseau o){
-
+    tuerOiseau(oiseau){
+        dataOiseau.remove(oiseau);
     }
 
-    void getOiseau(){
-
+    getOiseau(oiseau){
+        dataOiseau.get(oiseau);
     }
 
 
