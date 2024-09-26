@@ -5,17 +5,18 @@ import {useState} from "react";
 export default function CatalogueOiseaux(props) {
     const [estOuvert, setEstOuvert] = useState(false);
     const [dataOiseau, setDataOiseau] = props.dataOiseauState;
+    const [dataCritiques, setDataCritiques] = props.dataCritiqueState;
 
     const toggleModal = () => {
         setEstOuvert(!estOuvert);
     };
 
     function handleTuerOiseau(idOiseau) {
-        setDataOiseau(oldDataOiseau => (oldDataOiseau.filter(
-            oiseau => oiseau.idOiseau !== idOiseau)
-        ));
+        const updatedOiseaux = dataOiseau.filter(oiseau => oiseau.idOiseau !== idOiseau);
+        const updatedCritiques = dataCritiques.filter(critique => critique.oiseau !== idOiseau);
+        setDataOiseau(updatedOiseaux);
+        setDataCritiques(updatedCritiques);
     }
-
 
     return (
         <>
