@@ -1,4 +1,5 @@
 export default function ConfirmationSupression(props) {
+
     return (
         <>
             <div>
@@ -11,8 +12,8 @@ export default function ConfirmationSupression(props) {
                                     <h3 className="text-danger my-3"> Cette action est définitive.</h3>
                                     <hr/>
                                     <div className="img-confirmation">
-                                    <img src={"src/assets/images/confirmation.png"} className=" my-3 img-confirmation"
-                                         alt="est-ce que t'es vraiment vraiment certain ??"/>
+                                        <img src={"src/assets/images/confirmation.png"} className=" my-3 img-confirmation"
+                                             alt="est-ce que t'es vraiment vraiment certain ??"/>
                                     </div>
                                     <hr/>
                                 </div>
@@ -21,8 +22,7 @@ export default function ConfirmationSupression(props) {
                                         <button className="btn btn-dark " data-toggle="modal"
                                                 onClick={props.toggleModalConfirmation}>Annuler
                                         </button>
-                                        {/*Ajouter le onClick qui appellera la fonction de suppression de l'oiseau, aussi ajouter une confirmation de supression dans le bas de l'écran par exemple.*/}
-                                        <button className="btn btn-danger" data-toggle="modal">Supprimer</button>
+                                        <button className="btn btn-danger" data-toggle="modal" onClick={props.tuerOiseau}>Supprimer</button>
                                     </div>
                                 </div>
                             </div>

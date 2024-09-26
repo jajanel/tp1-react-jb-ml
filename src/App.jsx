@@ -7,6 +7,7 @@ import CatalogueOiseaux from "./components/CatalogueOiseaux.jsx";
 function App() {
 
     const [categorieSelectionne, setCategorieSelectionne] = useState("tous");
+    const dataOiseauState = useState(dataOiseau);
 
     //Change la valeur de la catégorie montrée dans le catalogue en utilisant le setter setCategorieSelectionne
     const handleChangementCategorie = (categorieOiseau) => {
@@ -22,7 +23,7 @@ function App() {
     return (
         <>
             <Navbar surChangementCategorie={handleChangementCategorie}/>
-            <CatalogueOiseaux oiseauxFiltre={oiseauxFiltre}/>
+            <CatalogueOiseaux oiseauxFiltre={oiseauxFiltre} dataOiseauState={dataOiseauState}/>
         </>
     );
 }
