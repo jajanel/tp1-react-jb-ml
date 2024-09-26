@@ -4,10 +4,19 @@ import {useState} from "react";
 
 export default function CatalogueOiseaux(props) {
     const [estOuvert, setEstOuvert] = useState(false);
+    const [dataOiseau, setDataOiseau] = props.dataOiseauState;
+    const [dataCritiques, setDataCritiques] = props.dataCritiqueState;
 
     const toggleModal = () => {
         setEstOuvert(!estOuvert);
     };
+
+    function handleTuerOiseau(idOiseau) {
+        const updatedOiseaux = dataOiseau.filter(oiseau => oiseau.idOiseau !== idOiseau);
+        const updatedCritiques = dataCritiques.filter(critique => critique.oiseau !== idOiseau);
+        setDataOiseau(updatedOiseaux);
+        setDataCritiques(updatedCritiques);
+    }
 
     return (
         <>
@@ -24,6 +33,7 @@ export default function CatalogueOiseaux(props) {
                             <div className="col-xl-4 col-xxl-3 col-md-6 col-lg-6 align-content-center"
                                  key={oiseau.idOiseau}>
                                 <CarteProduit
+                                    tuerOiseau={()=>handleTuerOiseau(oiseau.idOiseau)}
                                     id={oiseau.idOiseau}
                                     categorie={oiseau.categorie}
                                     race={oiseau.race}

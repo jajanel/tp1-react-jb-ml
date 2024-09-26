@@ -61,8 +61,12 @@ export default function CarteProduit(props) {
                                 data-bs-dismiss="modal" onClick={toggleModalConfirmation}>
                             <span aria-hidden="true" onClick={toggleModalConfirmation}>&times;</span>
                         </button>
-                        <ConfirmationSupression estOuvertConfirmation={estOuvertConfirmation}
-                                                toggleModalConfirmation={toggleModalConfirmation}/>
+                        <ConfirmationSupression
+                            estOuvertConfirmation={estOuvertConfirmation}
+                            toggleModalConfirmation={toggleModalConfirmation}
+                            tuerOiseau={props.tuerOiseau}
+                            id={props.id}
+                        />
                     </div>
                 </div>
             </div>
