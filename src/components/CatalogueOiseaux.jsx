@@ -12,6 +12,8 @@ export default function CatalogueOiseaux(props) {
     };
 
     function handleTuerOiseau(idOiseau) {
+
+        //Ici tuer oiseau
         setDataOiseau(updatedOiseaux);
         setDataCritiques(updatedCritiques);
     }
