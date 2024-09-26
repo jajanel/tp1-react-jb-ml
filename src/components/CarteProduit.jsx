@@ -26,6 +26,9 @@ export default function CarteProduit(props) {
         setEstOuvertConfirmation(!estOuvertConfirmation);
     };
 
+    // Filter critiques for the specific bird
+    const filteredCritiques = props.dataCritiques.filter(critique => critique.idOiseau === props.id);
+
     return (
         <>
             <div className="card m-3 border-primary border-2 bg-secondary shadow">
@@ -48,11 +51,14 @@ export default function CarteProduit(props) {
                         toggleModalDescription={toggleModalDescription}
                     />
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
-                    <ListeCritiques id={props.id}
-                                    categorie={props.categorie}
-                                    race={props.race}
-                                    estOuvertCritique={estOuvertCritique}
-                                    toggleModalCritique={toggleModalCritique}/>
+                    <ListeCritiques
+                        id={props.id}
+                        categorie={props.categorie}
+                        race={props.race}
+                        estOuvertCritique={estOuvertCritique}
+                        toggleModalCritique={toggleModalCritique}
+                        dataCritiques={filteredCritiques} // Pass filtered critiques here
+                    />
                 </div>
                 <div className="card-footer">
                     <div className="btn-wrapper text-center d-flex justify-content-between">

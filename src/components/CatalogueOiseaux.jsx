@@ -12,8 +12,6 @@ export default function CatalogueOiseaux(props) {
     };
 
     function handleTuerOiseau(idOiseau) {
-        const updatedOiseaux = dataOiseau.filter(oiseau => oiseau.idOiseau !== idOiseau);
-        const updatedCritiques = dataCritiques.filter(critique => critique.oiseau !== idOiseau);
         setDataOiseau(updatedOiseaux);
         setDataCritiques(updatedCritiques);
     }
@@ -41,6 +39,8 @@ export default function CatalogueOiseaux(props) {
                                     prix={oiseau.prix}
                                     srcImage={oiseau.srcImage}
                                     datePublication={oiseau.datePublication}
+                                    dataCritiques={dataCritiques}
+                                    dataOiseau={dataOiseau}
                                 />
                             </div>
                         ))}

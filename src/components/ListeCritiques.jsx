@@ -1,73 +1,45 @@
 import MaCritique from "./MaCritique.jsx";
+import CritiquePrecedente from "./CritiquePrecedente.jsx";
 
 export default function ListeCritiques(props) {
-
-    return (<>
-        <div>
-            {props.estOuvertCritique && (<div className="popup  ">
-                    {/*Header avec appel du component ma critique*/}
-
-                    <MaCritique
-                        id={props.id}
-                        categorie={props.categorie}
-                        race={props.race}
-                    />
-
-                    {/*Liste de toutes les critiques*/}
-                    <div className="card border-0 my-4">
-
-
-                        <div className="row text-start m-4">
-                            <div className="col">
-                                <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
-                                <hr/>
-                                {/*Ici il faut utiliser une .map sur les différentes critiques existantes.*/}
-                                <div className="bg-light rounded-3 p-2 m-2">
-
-                                    <div className="pb-4">
-                                        <label className="form-label">ID</label>
-                                        <input type="" className="form-control" id="note" disabled/>
-                                    </div>
-                                    <div className="pb-4">
-                                        <label className="form-label">Note globale:</label>
-                                        <input type="number" className="form-control" id="note" disabled/>
-                                    </div>
-                                    <div className="pb-4">
-
-                                        <label className="form-label">Tempérament:</label>
-                                        <input
-                                            type="text" className="form-control" id="temperament" disabled/>
-                                    </div>
-                                    <div className="pb-4">
-                                        <label className="form-label">Beauté:</label>
-                                        <input type="text" className="form-control" id="beaute" disabled/>
-                                    </div>
-                                    <div className="pb-4">
-
-                                        <label className="form-label">Utilisation:</label> <input
-                                        type="text" className="form-control" id="utilisation" disabled/>
-                                    </div>
+    return (
+        <>
+            <div>
+                {props.estOuvertCritique && (
+                    <div className="popup">
+                        <MaCritique
+                            id={props.id}
+                            categorie={props.categorie}
+                            race={props.race}
+                        />
+                        <div className="card border-0 my-4">
+                            <div className="row text-start m-4">
+                                <div className="col my-2">
+                                    <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
+                                    <hr/>
+                                    {props.dataCritiques.map((critique) => (
+                                       <CritiquePrecedente
+                                             key={critique.idCritique}
+                                             idCritique={critique.idCritique}
+                                             note={critique.note}
+                                             temperament={critique.temperament}
+                                             beaute={critique.beaute}
+                                             utilisation={critique.utilisation}
+                                        />
+                                    ))}
                                 </div>
-                                <hr/>
                             </div>
-
                         </div>
-
-
-                    </div>
-
-                    {/*Footer avec bouton pour annuler*/}
-                    <div className="row">
-                        <div className="btn-wrapper text-center d-flex justify-content-start modal-footer">
-                            <button className="btn btn-danger " data-toggle="modal"
-                                    onClick={props.toggleModalCritique}>Fermer
-                            </button>
+                        <div className="row">
+                            <div className="btn-wrapper text-center d-flex justify-content-start modal-footer">
+                                <button className="btn btn-danger" data-toggle="modal" onClick={props.toggleModalCritique}>
+                                    Fermer
+                                </button>
+                            </div>
                         </div>
                     </div>
-
-
-                </div>)}
-        </div>
-    </>)
-
+                )}
+            </div>
+        </>
+    );
 }
