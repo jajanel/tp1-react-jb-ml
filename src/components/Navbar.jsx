@@ -1,4 +1,14 @@
+import Statistiques from "./Statistiques.jsx";
+import {useState} from "react";
+
 export default function Navbar(props) {
+
+    const [estOuvertStatistiques, setEstOuvertStatistiques] = useState(false);
+
+
+    const toggleModalStatistiques = () => {
+        setEstOuvertStatistiques(!estOuvertStatistiques);
+    };
 
     const handleChoixCategorie = (categorieOiseau) => {
         props.surChangementCategorie(categorieOiseau);
@@ -38,20 +48,23 @@ export default function Navbar(props) {
                                 Statistiques
                             </button>
                             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                <li><a className="dropdown-item">Poules</a></li>
+                                <li><button onClick={toggleModalStatistiques} className="dropdown-item">Poules</button></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item">Canards</a></li>
+                                <li><button onClick={toggleModalStatistiques} className="dropdown-item">Canards</button></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item">Oies</a></li>
+                                <li><button onClick={toggleModalStatistiques} className="dropdown-item">Oies</button></li>
                                 <li>
                                     <hr className="dropdown-divider"/>
                                 </li>
-                                <li><a className="dropdown-item">Dindes</a></li>
+                                <li><button onClick={toggleModalStatistiques} className="dropdown-item">Dindes</button></li>
                             </ul>
+                            <Statistiques
+                                estOuvertStatistiques={estOuvertStatistiques}
+                                toggleModalStatistiques={toggleModalStatistiques}/>
                         </div>
                     </div>
                 </div>

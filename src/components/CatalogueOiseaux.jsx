@@ -6,7 +6,6 @@ export default function CatalogueOiseaux(props) {
     const [estOuvert, setEstOuvert] = useState(false);
     const [dataOiseau, setDataOiseau] = props.dataOiseauState;
     const [dataCritiques, setDataCritiques] = props.dataCritiqueState;
-    const [locations, setLocations] = dataOiseau;
 
     const toggleModal = () => {
         setEstOuvert(!estOuvert);
@@ -17,11 +16,12 @@ export default function CatalogueOiseaux(props) {
         //Ici tuer oiseau
         console.log("Fonction TuerOiseau appelé pour l'oiseau #" + idOiseau);
 
-        setLocations(oldLocations => oldLocations.filter(
-            location => location.id !== Number(event.target.parentNode.children[0].id)
+        setDataOiseau(oldLocations => oldLocations.filter(
+            dataOiseau => dataOiseau.id !== Number(event.target.parentNode.children[0].id)
         ));
         setDataOiseau(updatedOiseaux);
         setDataCritiques(updatedCritiques);
+
 
     }
 
