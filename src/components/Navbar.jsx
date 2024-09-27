@@ -6,9 +6,8 @@ export default function Navbar(props) {
     const [estOuvertStatistiques, setEstOuvertStatistiques] = useState(false);
 
 
-    const toggleModalStatistiques = (categorieOiseau) => {
+    const toggleModalStatistiques = () => {
         setEstOuvertStatistiques(!estOuvertStatistiques);
-        handleChoixCategorie(categorieOiseau);
     };
 
     const handleChoixCategorie = (categorieOiseau) => {
@@ -44,25 +43,11 @@ export default function Navbar(props) {
                             </li>
                         </ul>
                         <div className="dropdown">
-                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            <button onClick={toggleModalStatistiques} className="btn btn-secondary" type="button" id="dropdownMenuButton"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                 Statistiques
                             </button>
-                            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                                <li><button onClick={() => toggleModalStatistiques("poule")} className="dropdown-item">Poules</button></li>
-                                <li>
-                                    <hr className="dropdown-divider"/>
-                                </li>
-                                <li><button onClick={() => toggleModalStatistiques("canard")} className="dropdown-item">Canards</button></li>
-                                <li>
-                                    <hr className="dropdown-divider"/>
-                                </li>
-                                <li><button onClick={() => toggleModalStatistiques("oie")} className="dropdown-item">Oies</button></li>
-                                <li>
-                                    <hr className="dropdown-divider"/>
-                                </li>
-                                <li><button onClick={() => toggleModalStatistiques("dinde")} className="dropdown-item">Dindes</button></li>
-                            </ul>
+
                             <CatalogueStatistiques
                                 oiseauxFiltre={props.oiseauxFiltre}
                                 estOuvertStatistiques={estOuvertStatistiques}
