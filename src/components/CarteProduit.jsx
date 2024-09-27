@@ -3,7 +3,7 @@ import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
 import ListeCritiques from "./ListeCritiques.jsx";
-import Statistiques from "./Statistiques.jsx";
+import CatalogueStatistiques from "./CatalogueStatistiques.jsx";
 
 export default function CarteProduit(props) {
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
