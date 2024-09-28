@@ -2,6 +2,12 @@ import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
 
 export default function ListeCritiques(props) {
+
+    function ajouterCritique(){
+        const formData = new FormData(event.target);
+        console.log(formData);
+    }
+
     return (
         <>
             <div>
@@ -11,6 +17,7 @@ export default function ListeCritiques(props) {
                             id={props.id}
                             categorie={props.categorie}
                             race={props.race}
+                            ajouterCritique={ajouterCritique}
                         />
                         <div className="card border-0 my-4">
                             <div className="row text-start m-4">
