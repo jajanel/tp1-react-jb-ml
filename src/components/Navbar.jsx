@@ -49,6 +49,7 @@ export default function Navbar(props) {
                             </button>
 
                             <CatalogueStatistiques
+                                dataCritiqueState={props.dataCritiqueState}
                                 oiseauxFiltre={props.oiseauxFiltre}
                                 estOuvertStatistiques={estOuvertStatistiques}
                                 toggleModalStatistiques={toggleModalStatistiques}/>

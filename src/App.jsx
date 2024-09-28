@@ -25,7 +25,7 @@ function App() {
 
     return (
         <>
-            <Navbar surChangementCategorie={handleChangementCategorie} dataCritiqueState={dataCritiqueState} oiseauxFiltre={oiseauxFiltre}/>
+            <Navbar surChangementCategorie={handleChangementCategorie} dataCritiqueState={dataCritiqueState} dataOiseauState={dataOiseauState} oiseauxFiltre={oiseauxFiltre}/>
             <CatalogueOiseaux oiseauxFiltre={oiseauxFiltre} dataOiseauState={dataOiseauState} dataCritiqueState={dataCritiqueState}/>
         </>
     );

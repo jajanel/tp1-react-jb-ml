@@ -2,6 +2,26 @@ import Statistique from "./Statistique.jsx";
 
 export default function CatalogueStatistiques(props) {
 
+    const noteTous = 0;
+    /*
+    const notePoules;
+    const noteOies;
+    const noteCanards;
+    const noteDindes;
+    */
+
+    /*
+    function moyenne(){
+        let nbNotes = 0;
+        let note = 0;
+        props.dataCritiqueState.map((critique) =>(
+            note += critique.note;
+            nbNotes++;
+        ))
+
+        return note / nbNotes;
+    }
+*/
     return (
         <>
             <div>
@@ -14,7 +34,7 @@ export default function CatalogueStatistiques(props) {
                                     <hr/>
                                     <div>
                                         <ul>
-                                            <li>Tous: /100</li>
+                                            <li>Tous: {noteTous}/100</li>
                                             <li>Poules: /100</li>
                                             <li>Canards: /100</li>
                                             <li>Oies: /100</li>
