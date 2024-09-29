@@ -31,7 +31,7 @@ export default function MaCritique(props) {
                     <div className="btn-wrapper text-center d-flex justify-content-end ">
                         {/* TODO Le bouton "Ajouter" doit trigger l'action de sérialisation qui ajoute la critique a la liste de crituque js" */}
                         <button type='submit' className={"btn btn-success m-3"}
-                                data-toggle="modal">Ajouter
+                                >Ajouter
                         </button>
                     </div>
                 </div>

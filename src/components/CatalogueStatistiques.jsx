@@ -47,7 +47,7 @@ export default function CatalogueStatistiques(props) {
                                 </div>
                                 <div className="row">
                                     <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
-                                        <button className="btn btn-dark " data-toggle="modal"
+                                        <button className="btn btn-dark "
                                                 onClick={() => props.toggleModalStatistiques("tous")}>Fermer
                                         </button>
                                     </div>

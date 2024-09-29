@@ -17,9 +17,9 @@ export default function ConfirmationSupression(props) {
                             <div className="row">
                                 <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
                                     {/* Si clique sur annuler le popup se ferme et rien ne se passe*/}
-                                    <button className="btn btn-dark " data-toggle="modal" onClick={props.toggleModalConfirmation}>Annuler</button>
+                                    <button className="btn btn-dark " onClick={props.toggleModalConfirmation}>Annuler</button>
                                     {/* Si clique sur supprimer le popup se ferme et l'oiseau est supprimé en appellant le props */}
-                                    <button className="btn btn-danger" data-toggle="modal" onClick={() => {
+                                    <button className="btn btn-danger"  onClick={() => {
                                         props.confirmerSuppressionOiseau();
                                         props.toggleModalConfirmation();
                                     }}>Supprimer</button>
