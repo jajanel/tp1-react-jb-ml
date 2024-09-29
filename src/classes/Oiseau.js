@@ -1,13 +1,13 @@
 class Oiseau {
-
-    constructor(id, categorie, race, prix, origine, date, src) {
-        this.idOiseau = id;
+    constructor(idOiseau, categorie, race, prix, origine, datePublication, srcImage) {
+        this.idOiseau = idOiseau;
         this.categorie = categorie;
         this.race = race;
         this.prix = prix;
         this.origine = origine;
-        this.datePublication = date;
-        this.srcImage = src;
+        this.datePublication = datePublication;
+        this.srcImage = srcImage;
     }
-
 }
+
+export default Oiseau;
