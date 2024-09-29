@@ -66,7 +66,6 @@ export default function CarteProduit(props) {
                         estOuvertCritique={estOuvertCritique}
                         toggleModalCritique={toggleModalCritique}
                         dataCritiques={filteredCritiques}
-                        setDataCritiques={props.setDataCritiques}
                     />
                 </div>
                 <div className="card-footer">

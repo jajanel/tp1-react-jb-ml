@@ -33,7 +33,8 @@ export default function CatalogueOiseaux(props) {
                                 srcImage={oiseau.srcImage}
                                 datePublication={oiseau.datePublication}
                                 dataCritiques={dataCritiques}
-                                setDataCritiques={setDataCritiques}
+                                dataOiseau={dataOiseau}
+                                setDataOiseau={setDataOiseau}
                             />
                         </div>
                     ))}
