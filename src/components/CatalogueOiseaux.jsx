@@ -7,17 +7,17 @@ export default function CatalogueOiseaux(props) {
     const [dataOiseau, setDataOiseau] = props.dataOiseauState;
     const [dataCritiques, setDataCritiques] = props.dataCritiqueState;
 
-    const toggleModal = () => {
+    const toggleModalAjouterOiseau = () => {
         setEstOuvert(!estOuvert);
     };
 
     return (
         <>
             <div className={"row"}>
-                <button className="btn btn-sm btn-secondary" onClick={toggleModal}>
+                <button className="btn btn-sm btn-secondary" onClick={toggleModalAjouterOiseau}>
                     Ajouter un oiseau
                 </button>
-                <AjouterOiseau estOuvert={estOuvert} toggleModal={toggleModal} />
+                <AjouterOiseau estOuvert={estOuvert} toggleModal={toggleModalAjouterOiseau} />
             </div>
             <div className="container-fluid">
                 <div className="row">
