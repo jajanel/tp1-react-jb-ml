@@ -44,13 +44,14 @@ export default function ListeCritiques(props) {
                                     <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
                                     <hr/>
                                     {props.dataCritiques.map((critique) => (
-                                       <CritiquePrecedente
-                                             key={critique.idCritique}
-                                             idCritique={critique.idCritique}
-                                             note={critique.note}
-                                             temperament={critique.temperament}
-                                             beaute={critique.beaute}
-                                             utilisation={critique.utilisation}
+                                        <CritiquePrecedente
+                                            key={critique.idCritique}
+                                            idCritique={critique.idCritique}
+                                            note={critique.note}
+                                            temperament={critique.temperament}
+                                            beaute={critique.beaute}
+                                            utilisation={critique.utilisation}
+                                            setDataCritiques={props.setDataCritiques}
                                         />
                                     ))}
                                 </div>
@@ -58,7 +59,7 @@ export default function ListeCritiques(props) {
                         </div>
                         <div className="row">
                             <div className="btn-wrapper text-center d-flex justify-content-start modal-footer">
-                                <button className="btn btn-danger" data-toggle="modal" onClick={props.toggleModalCritique}>
+                                <button className="btn btn-danger" onClick={props.toggleModalCritique}>
                                     Fermer
                                 </button>
                             </div>
