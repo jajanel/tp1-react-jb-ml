@@ -3,9 +3,28 @@ import CritiquePrecedente from "./CritiquePrecedente.jsx";
 
 export default function ListeCritiques(props) {
 
-    function ajouterCritique(){
+    function ajouterCritique(event, idOiseau){
+        event.preventDefault();
         const formData = new FormData(event.target);
-        console.log(formData);
+
+        const test = {
+            note: formData.get("note"),
+            temperament: formData.get("temperament"),
+            beaute: formData.get("beaute"),
+            util: formData.get("utilisation")
+        }
+
+        console.log(test);
+
+        const nouvelleCritique = {
+            idCritique: 99,
+            idOiseau: idOiseau,
+            note: formData.get('note'),
+            temperament: formData.get('temperament'),
+            beaute: formData.get('beate'),
+            util: formData.get('utilisation'),
+            dateCritique: Date.now()
+        }
     }
 
     return (
