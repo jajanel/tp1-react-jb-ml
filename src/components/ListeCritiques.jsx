@@ -37,20 +37,22 @@ export default function ListeCritiques(props) {
                             categorie={props.categorie}
                             race={props.race}
                             ajouterCritique={ajouterCritique}
+                            setDataCritiques={props.setDataCritiques}
                         />
                         <div className="card border-0 my-4">
                             <div className="row text-start m-4">
                                 <div className="col my-2">
                                     <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
-                                    <hr/>
+                                    <hr />
                                     {props.dataCritiques.map((critique) => (
-                                       <CritiquePrecedente
-                                             key={critique.idCritique}
-                                             idCritique={critique.idCritique}
-                                             note={critique.note}
-                                             temperament={critique.temperament}
-                                             beaute={critique.beaute}
-                                             utilisation={critique.utilisation}
+                                        <CritiquePrecedente
+                                            key={critique.idCritique}
+                                            idCritique={critique.idCritique}
+                                            note={critique.note}
+                                            temperament={critique.temperament}
+                                            beaute={critique.beaute}
+                                            utilisation={critique.util}
+                                            setDataCritiques={props.setDataCritiques}
                                         />
                                     ))}
                                 </div>
