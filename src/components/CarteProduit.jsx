@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
@@ -9,14 +9,10 @@ export default function CarteProduit(props) {
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
     const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
-    const [estOuvertModifierDescrition, setEstOuvertModifierDescription] = useState(false);
+    const [oiseauASupprimer, setOiseauASupprimer] = useState(null);
 
     const toggleModalDescription = () => {
         setEstOuvertDescription(!estOuvertDescription);
-    };
-
-    const toggleModalModifierDescription = () => {
-        setEstOuvertModifierDescription(!estOuvertModifierDescrition);
     };
 
     const toggleModalCritique = () => {
@@ -27,19 +23,30 @@ export default function CarteProduit(props) {
         setEstOuvertConfirmation(!estOuvertConfirmation);
     };
 
-    // Filter critiques for the specific bird
+    const handleSupprimerOiseau = (idOiseau) => {
+        setOiseauASupprimer(idOiseau);
+        toggleModalConfirmation();
+    };
+
+    const confirmerSuppressionOiseau = () => {
+        if (oiseauASupprimer !== null) {
+            props.tuerOiseau(oiseauASupprimer);
+            setOiseauASupprimer(null);
+            toggleModalConfirmation();
+        }
+    };
+
     const filteredCritiques = props.dataCritiques.filter(critique => critique.idOiseau === props.id);
 
     return (
         <>
             <div className="card m-3 border-primary border-2 bg-secondary shadow">
-                <img src={props.srcImage} className="card-img-top" alt="image d'oiseau"/>
+                <img src={props.srcImage} className="card-img-top" alt="image d'oiseau" />
                 <div className="card-body">
                     <h4 className="card-title text-uppercase">{props.categorie} {props.race}</h4>
                 </div>
                 <div className="btn-wrapper text-center d-flex justify-content-center m-3">
-                    <a className="btn btn-sm btn-success shadow boutonCarte me-4"
-                       onClick={toggleModalDescription}> description</a>
+                    <a className="btn btn-sm btn-success shadow boutonCarte me-4" onClick={toggleModalDescription}> description</a>
                     <DescriptionOiseau
                         id={props.id}
                         categorie={props.categorie}
@@ -58,21 +65,19 @@ export default function CarteProduit(props) {
                         race={props.race}
                         estOuvertCritique={estOuvertCritique}
                         toggleModalCritique={toggleModalCritique}
-                        dataCritiques={filteredCritiques} // Pass filtered critiques here
+                        dataCritiques={filteredCritiques}
                     />
                 </div>
                 <div className="card-footer">
                     <div className="btn-wrapper text-center d-flex justify-content-between">
                         <p className="modal-title text-muted">Supprimer l'oiseau</p>
-                        <button type="button" className="btn btn-dark text-white btn-sm"
-                                data-bs-dismiss="modal" onClick={toggleModalConfirmation}>
-                            <span aria-hidden="true" onClick={toggleModalConfirmation}>&times;</span>
+                        <button type="button" className="btn btn-dark text-white btn-sm" data-bs-dismiss="modal" onClick={() => handleSupprimerOiseau(props.id)}>
+                            <span aria-hidden="true">&times;</span>
                         </button>
                         <ConfirmationSupression
                             estOuvertConfirmation={estOuvertConfirmation}
                             toggleModalConfirmation={toggleModalConfirmation}
-                            tuerOiseau={props.tuerOiseau}
-                            id={props.id}
+                            confirmerSuppressionOiseau={confirmerSuppressionOiseau}
                         />
                     </div>
                 </div>
