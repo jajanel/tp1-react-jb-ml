@@ -1,31 +1,47 @@
 import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
+import {ajouterCritique} from "../classes/gestionCatalogueCritique.js";
+import {dataCritiques} from "../assets/critiques.js";
 
 export default function ListeCritiques(props) {
 
-    function ajouterCritique(event, idOiseau){
+    function dateFormat(date){
+        return date.getFullYear() +  "/" + date.getMonth() +  "/" + date.getDate() +  " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    }
+
+    function creerCritique(event, idOiseau){
         event.preventDefault();
         const formData = new FormData(event.target);
+        let date = new Date();
+        date.getSeconds()
 
-        const test = {
-            note: formData.get("note"),
-            temperament: formData.get("temperament"),
-            beaute: formData.get("beaute"),
-            util: formData.get("utilisation")
-        }
+        // SAVE
+        let jsonDataCritiques = JSON.stringify(dataCritiques)
+        localStorage.setItem("dataCritique", jsonDataCritiques)
 
-        console.log(test);
+        // load
+        console.log(JSON.parse(localStorage.getItem("dataCritique")));
+
 
         const nouvelleCritique = {
-            idCritique: 99,
+            idCritique: JSON.parse(localStorage.getItem("dataCritique")).length + 1,
             idOiseau: idOiseau,
             note: formData.get('note'),
             temperament: formData.get('temperament'),
-            beaute: formData.get('beate'),
-            util: formData.get('utilisation'),
-            dateCritique: Date.now()
+            beaute: formData.get('beaute'),
+            utilisation: formData.get('utilisation'),
+            dateCritique: dateFormat(new Date)
         }
+
+        console.log(nouvelleCritique);
+        //ajouterCritique();
+
     }
+
+    const handleSupprimerCritique = (idCritique) => {
+        supprimerCritique(idCritique);
+        props.setDataCritiques(prevCritiques => prevCritiques.filter(critique => critique.idCritique !== idCritique));
+    };
 
     return (
         <>
@@ -36,7 +52,7 @@ export default function ListeCritiques(props) {
                             id={props.id}
                             categorie={props.categorie}
                             race={props.race}
-                            ajouterCritique={ajouterCritique}
+                            creerCritique={creerCritique}
                         />
                         <div className="card border-0 my-4">
                             <div className="row text-start m-4">

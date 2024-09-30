@@ -1,7 +1,7 @@
 export default function MaCritique(props) {
     return (<>
         <div>
-            <form id="critiqueForm" onSubmit={props.ajouterCritique}>
+            <form id="critiqueForm" onSubmit={(event) => props.creerCritique(event, props.id)}>
                 <div className="card border-3">
                     <div className="row text-start m-4">
                         <div className="col col-11">
@@ -9,7 +9,7 @@ export default function MaCritique(props) {
                             <hr/>
                             <div className="pb-4">
                                 <label htmlFor="note" className="form-label">Note globale:</label>
-                                <input type="number" className="form-control" name="note" id="note"/>
+                                <input type="range" className=" form-range" name="note" id="note" min={0} max={100}/>
                             </div>
                             <div className="pb-4">
                                 <label className="form-label">Tempérament:</label>
