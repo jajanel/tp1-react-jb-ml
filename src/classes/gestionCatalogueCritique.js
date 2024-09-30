@@ -6,7 +6,7 @@ class GestionCatalogueCritique {
     }
 
     getCritiques(){
-        return this.critiques.
+        //return this.critiques
     }
 
 // Ajouter une critique à la liste
