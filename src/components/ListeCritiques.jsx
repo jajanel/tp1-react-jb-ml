@@ -5,23 +5,20 @@ import {dataCritiques} from "../assets/critiques.js";
 
 export default function ListeCritiques(props) {
 
-    function dateFormat(date){
-        return date.getFullYear() +  "/" + date.getMonth() +  "/" + date.getDate() +  " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    function dateFormat(date) {
+        return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     }
 
-    function creerCritique(event, idOiseau){
+    function creerCritique(event, idOiseau) {
         event.preventDefault();
         const formData = new FormData(event.target);
         let date = new Date();
         date.getSeconds()
 
-        // SAVE
-        let jsonDataCritiques = JSON.stringify(dataCritiques)
-        localStorage.setItem("dataCritique", jsonDataCritiques)
-
         // load
-        console.log(JSON.parse(localStorage.getItem("dataCritique")));
+        let critiques = JSON.parse(localStorage.getItem("dataCritique"));
 
+        console.log(critiques);
 
         const nouvelleCritique = {
             idCritique: JSON.parse(localStorage.getItem("dataCritique")).length + 1,
@@ -33,9 +30,8 @@ export default function ListeCritiques(props) {
             dateCritique: dateFormat(new Date)
         }
 
-        console.log(nouvelleCritique);
-        //ajouterCritique();
-
+        ajouterCritique(nouvelleCritique);
+        console.log(critiques);
     }
 
     const handleSupprimerCritique = (idCritique) => {

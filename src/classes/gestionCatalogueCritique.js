@@ -4,6 +4,11 @@ class GestionCatalogueCritique {
     constructor() {
         this.critiques = JSON.parse(localStorage.getItem("dataCritiques")) || dataCritiques;
     }
+
+    getCritiques(){
+        return this.critiques.
+    }
+
 // Ajouter une critique à la liste
     ajouterCritique(nouvelleCritique) {
         this.critiques.push(nouvelleCritique);
