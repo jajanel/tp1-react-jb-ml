@@ -1,6 +1,7 @@
 import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
 import {ajouterCritique} from "../classes/gestionCatalogueCritique.js";
+import {getCritiques} from "../classes/gestionCatalogueCritique.js";
 import {dataCritiques} from "../assets/critiques.js";
 
 export default function ListeCritiques(props) {
@@ -12,16 +13,12 @@ export default function ListeCritiques(props) {
     function creerCritique(event, idOiseau) {
         event.preventDefault();
         const formData = new FormData(event.target);
-        let date = new Date();
-        date.getSeconds()
 
-        // load
-        let critiques = JSON.parse(localStorage.getItem("dataCritique"));
-
-        console.log(critiques);
+        let idCritique = getCritiques().length + 1;
+        console.log(idCritique);
 
         const nouvelleCritique = {
-            idCritique: JSON.parse(localStorage.getItem("dataCritique")).length + 1,
+            idCritique: idCritique,
             idOiseau: idOiseau,
             note: formData.get('note'),
             temperament: formData.get('temperament'),
@@ -31,7 +28,6 @@ export default function ListeCritiques(props) {
         }
 
         ajouterCritique(nouvelleCritique);
-        console.log(critiques);
     }
 
     const handleSupprimerCritique = (idCritique) => {

@@ -5,8 +5,9 @@ class GestionCatalogueCritique {
         this.critiques = JSON.parse(localStorage.getItem("dataCritiques")) || dataCritiques;
     }
 
+    // Retourne la liste des critiques
     getCritiques(){
-        //return this.critiques
+        return this.critiques
     }
 
 // Ajouter une critique à la liste
@@ -45,5 +46,6 @@ export const ajouterCritique = gestionCatalogueCritique.ajouterCritique.bind(ges
 export const supprimerCritique = gestionCatalogueCritique.supprimerCritique.bind(gestionCatalogueCritique);
 export const supprimerCritiquesParOiseau = gestionCatalogueCritique.supprimerCritiquesParOiseau.bind(gestionCatalogueCritique);
 export const filtrerEtMettreAJourCritiques = gestionCatalogueCritique.filtrerEtMettreAJourCritiques.bind(gestionCatalogueCritique);
+export const getCritiques = gestionCatalogueCritique.getCritiques.bind(gestionCatalogueCritique);
 
 export default GestionCatalogueCritique;
