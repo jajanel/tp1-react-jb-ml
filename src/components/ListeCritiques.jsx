@@ -13,9 +13,7 @@ export default function ListeCritiques(props) {
     function creerCritique(event, idOiseau) {
         event.preventDefault();
         const formData = new FormData(event.target);
-
         let idCritique = getCritiques().length + 1;
-        console.log(idCritique);
 
         const nouvelleCritique = {
             idCritique: idCritique,

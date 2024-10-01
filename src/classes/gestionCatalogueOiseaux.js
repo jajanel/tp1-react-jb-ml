@@ -6,6 +6,10 @@ class GestionCatalogueOiseaux {
         this.oiseaux = JSON.parse(localStorage.getItem("dataOiseau")) || dataOiseau;
     }
 
+    getOiseaux(){
+        return this.oiseaux;
+    }
+
     // Ajouter un oiseau à la liste
     ajouterOiseau(nouvelOiseau) {
         this.oiseaux.push(nouvelOiseau);
@@ -51,5 +55,6 @@ export const ajouterOiseau = gestionCatalogueOiseaux.ajouterOiseau.bind(gestionC
 export const modifierOiseau = gestionCatalogueOiseaux.modifierOiseau.bind(gestionCatalogueOiseaux);
 export const supprimerOiseau = gestionCatalogueOiseaux.supprimerOiseau.bind(gestionCatalogueOiseaux);
 export const filtrerEtMettreAJourOiseaux = gestionCatalogueOiseaux.filtrerEtMettreAJourOiseaux.bind(gestionCatalogueOiseaux);
+export const getOiseaux = gestionCatalogueOiseaux.getOiseaux.bind(gestionCatalogueOiseaux);
 
 export default GestionCatalogueOiseaux;
