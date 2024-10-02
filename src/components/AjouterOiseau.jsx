@@ -1,6 +1,8 @@
-import {getOiseaux} from "../classes/gestionCatalogueOiseaux.js";
+import {getOiseaux, ajouterOiseau} from "../classes/gestionCatalogueOiseaux.js";
 
 export default function AjouterOiseau(props) {
+
+    let srcImgForm = "https://via.placeholder.com/300";
 
     function dateFormat(date) {
         return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -20,10 +22,12 @@ export default function AjouterOiseau(props) {
             prix: formData.get("prix"),
             origine: formData.get("origine"),
             datePublication: dateFormat(new Date),
-            srcImage: formData.get("formFile")
+            srcImage: formData.get("formFile").name
         }
 
         console.log(nouveauOiseau);
+
+        ajouterOiseau(nouveauOiseau);
 
     }
     return (
@@ -41,10 +45,9 @@ export default function AjouterOiseau(props) {
                                         <div className="row">
                                             <div className="col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center">
                                                 <div className="ajouterPhoto rounded-3">
-                                                    <label htmlFor="formFile" className="form-label">Choisir votre
-                                                        image</label>
+                                                    <label htmlFor="formFile" className="form-label">Choisir votre image</label>
                                                     {/*La source de l'image doit être dynamique, elle doit être celle que l'utilisateur a choisi*/}
-                                                    <img src={"https://via.placeholder.com/300"} className="card-img "
+                                                    <img src={srcImgForm} className="card-img "
                                                          alt={"image selectionnée par l'utilisateur"}/>
                                                     <input className="form-control form-control mb-5" id="formFile" name="formFile" type="file"/></div>
 
@@ -90,13 +93,10 @@ export default function AjouterOiseau(props) {
                                                 </div>
                                                 <div className="pb-4">
 
-                                                    <label htmlFor="datePublication" className="form-label">Date de
-                                                        publication</label>
+                                                    <label htmlFor="datePublication" className="form-label">Date de publication</label>
                                                     <br/>
                                                     {/*La date de publication doit automatique être la date du jour et disabled, juste pour montrer à l'utilisateur qu'elle sera initialisé à la date d'aujourd'hui*/}
-                                                    <input disabled type="date" className="form-control"
-                                                           id="datePublication"
-                                                           name="datePublication" value=""/>
+                                                    <input disabled type="date" className="form-control" id="datePublication" name="datePublication" value=""/>
                                                 </div>
                                             </div>
                                         </div>
@@ -104,8 +104,7 @@ export default function AjouterOiseau(props) {
                                     <div className="row">
                                         <div
                                             className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
-                                            <button className="btn btn-danger "
-                                                    onClick={props.toggleModal}>Annuler
+                                            <button className="btn btn-danger " onClick={props.toggleModal}>Annuler
                                             </button>
                                             {/*Le bouton "Ajouter" doit trigger l'action de sérialisation qui ajoute l'oiso au "JSON" */}
                                             <button className="btn btn-success" type="submit">Ajouter</button>
