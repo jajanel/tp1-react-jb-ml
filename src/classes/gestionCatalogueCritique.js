@@ -13,8 +13,10 @@ class GestionCatalogueCritique {
     getNotes(){
         let notes;
 
+        let nbNotes = getCritiques().length;
 
-        return notes;
+
+        return nbNotes;
     }
 
 // Ajouter une critique à la liste
