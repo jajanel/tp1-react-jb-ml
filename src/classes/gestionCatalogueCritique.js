@@ -10,6 +10,13 @@ class GestionCatalogueCritique {
         return this.critiques
     }
 
+    getNotes(){
+        let notes;
+
+
+        return notes;
+    }
+
 // Ajouter une critique à la liste
     ajouterCritique(nouvelleCritique) {
         this.critiques.push(nouvelleCritique);
@@ -47,5 +54,6 @@ export const supprimerCritique = gestionCatalogueCritique.supprimerCritique.bind
 export const supprimerCritiquesParOiseau = gestionCatalogueCritique.supprimerCritiquesParOiseau.bind(gestionCatalogueCritique);
 export const filtrerEtMettreAJourCritiques = gestionCatalogueCritique.filtrerEtMettreAJourCritiques.bind(gestionCatalogueCritique);
 export const getCritiques = gestionCatalogueCritique.getCritiques.bind(gestionCatalogueCritique);
+export const getNotes = gestionCatalogueCritique.getNotes.bind(gestionCatalogueCritique);
 
 export default GestionCatalogueCritique;

@@ -1,27 +1,18 @@
 import Statistique from "./Statistique.jsx";
+import {getNotes} from "../classes/gestionCatalogueCritique.js";
 
 export default function CatalogueStatistiques(props) {
 
-    const noteTous = 0;
-    /*
-    const notePoules;
-    const noteOies;
-    const noteCanards;
-    const noteDindes;
-    */
+    function moyenne(categorie){
 
-    /*
-    function moyenne(){
-        let nbNotes = 0;
-        let note = 0;
-        props.dataCritiqueState.map((critique) =>(
-            note += critique.note;
-            nbNotes++;
-        ))
+        let avg = 0;
 
-        return note / nbNotes;
+        console.log(getNotes());
+
+
+        return avg;
     }
-*/
+
     return (
         <>
             <div>
@@ -34,11 +25,11 @@ export default function CatalogueStatistiques(props) {
                                     <hr/>
                                     <div>
                                         <ul>
-                                            <li>Tous: {noteTous}/100</li>
-                                            <li>Poules: /100</li>
-                                            <li>Canards: /100</li>
-                                            <li>Oies: /100</li>
-                                            <li>Dindes: /100</li>
+                                            <li>Tous: {moyenne("tous")}/100</li>
+                                            <li>Poules: {moyenne("poule")}/100</li>
+                                            <li>Canards: {moyenne("canard")}/100</li>
+                                            <li>Oies: {moyenne("oie")}/100</li>
+                                            <li>Dindes: {moyenne("dinde")}/100</li>
                                         </ul>
                                     </div>
                                     <hr/>
