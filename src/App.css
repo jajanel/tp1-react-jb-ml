@@ -1,4 +1,6 @@
-
+body{
+user-select: none;
+}
 
 .popup {
     width: 97%;
@@ -26,3 +28,4 @@
     height: 20%;
     margin: auto;
 }
+
