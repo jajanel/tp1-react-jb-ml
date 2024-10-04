@@ -72,7 +72,7 @@ export default function CarteProduit(props) {
                 <div className="card-footer">
                     <div className="btn-wrapper text-center d-flex justify-content-between">
                         <p className="card-title text-muted">Supprimer l'oiseau</p>
-                        <button type="button" className="btn btn-dark text-white btn-sm"  onClick={() => handleSupprimerOiseau(props.id)}>
+                        <button type="button" className="btn btn-dark text-white btn-sm bouton-delete"  onClick={() => handleSupprimerOiseau(props.id)}>
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <ConfirmationSupression
