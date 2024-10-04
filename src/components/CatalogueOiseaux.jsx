@@ -48,27 +48,5 @@ export default function CatalogueOiseaux(props) {
                 </div>
             </div>
         </>
-
-
-
-        <div className="container-fluid">
-            <div className="row">
-                {props.oiseauxFiltre.map((oiseau) => (
-                    <div className="col-xl-4 col-xxl-3 col-md-6 col-lg-6 align-content-center"
-                         key={oiseau.idOiseau}>
-                        <CarteProduit
-                            tuerOiseau={props.tuerOiseau}
-                            id={oiseau.idOiseau}
-                            categorie={oiseau.categorie}
-                            race={oiseau.race}
-                            origine={oiseau.origine}
-                            prix={oiseau.prix}
-                            srcImage={oiseau.srcImage}
-                            datePublication={oiseau.datePublication}
-                        />
-                    </div>
-                ))}
-            </div>
-        </div>
     </>);
 }
