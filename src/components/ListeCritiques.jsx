@@ -1,6 +1,6 @@
 import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
-import {ajouterCritique} from "../classes/gestionCatalogueCritique.js";
+import {ajouterCritique, supprimerCritique} from "../classes/gestionCatalogueCritique.js";
 import {getCritiques} from "../classes/gestionCatalogueCritique.js";
 import {dataCritiques} from "../assets/critiques.js";
 
