@@ -29,7 +29,7 @@ export default function DescriptionOiseau(props) {
                                                 <label className="form-label">Catégorie</label>
                                                 <select
                                                     className="form-select" disabled>
-                                                    <option value="" selected>{props.categorie}</option>
+                                                    <option defaultValue={props.categorie}>{props.categorie}</option>
                                                     <hr/>
                                                     {/*Ici il faut utiliser une .map sur les différentes catégories existante.
                                                      La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
@@ -43,8 +43,7 @@ export default function DescriptionOiseau(props) {
                                                 <label htmlFor="race" className="form-label">Race</label>
                                                 <select
                                                     className="form-select" disabled>
-                                                    <option selected> {props.race}</option>
-                                                    <hr/>
+                                                    <option defaultValue={props.race}> {props.race}</option>
                                                     {/*Ici il faut utiliser une .map sur les différentes catégories existante.
                                                      La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
                                                     <option value="">Poule</option>
@@ -65,8 +64,7 @@ export default function DescriptionOiseau(props) {
                                                      La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
                                                 <select
                                                     className="form-select" disabled>
-                                                    <option value="" selected>{props.origine}</option>
-                                                    <hr/>
+                                                    <option value=""  defaultValue={props.origine }>{props.origine}</option>
                                                     <option value="afrique">Afrique</option>
                                                     <option value="amerique">Amérique</option>
                                                     <option value="europe">Europe</option>
