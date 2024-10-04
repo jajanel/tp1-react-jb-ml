@@ -4,6 +4,7 @@ export default function CritiquePrecedente(props) {
     const handleSupprimerCritique = (idCritique) => {
         supprimerCritique(idCritique);
         props.setDataCritiques(prevCritiques => prevCritiques.filter(critique => critique.idCritique !== idCritique));
+        alert("Critique #" + idCritique + " supprimée");
     };
 
     return (
