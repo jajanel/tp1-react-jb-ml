@@ -12,6 +12,19 @@ Magnifique SPA de critique d'oiseaux par Maek Lorman et Janelle Bédard
 
 - Département d'informatique - Cégep Limoilou - Automne 2024
 
+## Pour lancer l'application web localement
+
+Installer les dépendances
+```bash
+  npm install
+```
+
+Lancer l'application et ouvrir le site
+```bash
+  npm run dev
+```
+
+
 ## Auteurs
 
 - [@jajanel](https://github.com/jajanel)
