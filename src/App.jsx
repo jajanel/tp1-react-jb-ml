@@ -20,6 +20,7 @@ function App() {
     // Initialiser le state avec les données du local storage, ou sinon avec les données par défaut (la liste directement prise du fichier "json")
     const [dataOiseau, setDataOiseau] = useState(() => getDonneesLocalStorage("dataOiseau", donnesOiseauxDefaut));
     const [dataCritiques, setDataCritiques] = useState(() => getDonneesLocalStorage("dataCritiques", donneesCritiquesDefaut));
+    const ouvertStatistiquesState = useState(false);
 
     // Resauvegarder les données dans le local storage à chauque changement
     useEffect(() => {
@@ -51,12 +52,15 @@ function App() {
                 dataCritiqueState={[dataCritiques, setDataCritiques]}
                 dataOiseauState={[dataOiseau, setDataOiseau]}
                 oiseauxFiltre={oiseauxFiltre}
+                ouvertStatistiquesState={ouvertStatistiquesState}
             />
             <CatalogueOiseaux
                 oiseauxFiltre={oiseauxFiltre}
                 dataOiseauState={[dataOiseau, setDataOiseau]}
                 dataCritiqueState={[dataCritiques, setDataCritiques]}
                 tuerOiseau={handleTuerOiseau}
+                ouvertStatistiquesState={ouvertStatistiquesState}
+
             />
         </>
     );
