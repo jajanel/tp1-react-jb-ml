@@ -21,8 +21,8 @@ export default function AjouterOiseau(props) {
             prix: formData.get("prix"),
             origine: formData.get("origine"),
             datePublication: dateFormat(new Date),
-            srcImage: formData.get("srcImgForm").name
-        };
+            srcImage: formData.get("imageChoisi").name
+        }
 
         ajouterOiseau(nouveauOiseau);
     }
@@ -59,15 +59,14 @@ export default function AjouterOiseau(props) {
                                             <div className="ajouterPhoto rounded-3">
                                                 <label htmlFor="formFile" className="form-label">Choisir votre image</label>
                                                 <img src={srcImgForm} className="card-img image-choisie" alt="image selectionnée par l'utilisateur"  />
-                                                <input className="form-control form-control mb-5" id="formFile" name="formFile" type="file" accept="image/*" onChange={handleChoixImage} />
+                                                <input className="form-control form-control mb-5" id="imageChoisi" name="imageChoisi" type="file" accept="image/*" onChange={handleChoixImage} />
                                             </div>
                                         </div>
                                         <div className="col mx-5">
                                             <div className="pb-4">
                                                 <label htmlFor="categorie" className="form-label">Catégorie</label>
                                                 <select className="form-select" name="categorie">
-                                                    <option value="" selected>Choisir la catégorie de volaille</option>
-                                                    <hr />
+                                                    <option defaultValue="Choisir la catégorie de volaille" value="" >Choisir la catégorie de volaille</option>
                                                     <option value="poule">Poule</option>
                                                     <option value="canard">Canard</option>
                                                     <option value="Oie">Oie</option>
@@ -85,8 +84,7 @@ export default function AjouterOiseau(props) {
                                             <div className="pb-4">
                                                 <label htmlFor="origine" className="form-label">Origine</label>
                                                 <select className="form-select" name="origine">
-                                                    <option value="" selected>Choisir la région d'origine</option>
-                                                    <hr />
+                                                    <option defaultValue="Choisir la région d'origine">Choisir la région d'origine</option>
                                                     <option value="afrique">Afrique</option>
                                                     <option value="amerique">Amérique</option>
                                                     <option value="europe">Europe</option>
@@ -114,5 +112,5 @@ export default function AjouterOiseau(props) {
                 )}
             </div>
         </>
-    );
+    )
 }
