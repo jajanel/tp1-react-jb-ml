@@ -1,4 +1,3 @@
-import Statistique from "./Statistique.jsx";
 import {getNotes} from "../classes/gestionCatalogueCritique.js";
 
 export default function CatalogueStatistiques(props) {
