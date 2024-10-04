@@ -1,9 +1,11 @@
-import { useState } from "react";
+import {useContext, useState} from "react";
 import { getOiseaux, ajouterOiseau } from "../classes/gestionCatalogueOiseaux.js";
+import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 
 export default function AjouterOiseau(props) {
     // Valeur par défaut de l'image à afficher dans le formulaire pour l'ajout de l'oiseau
     const [srcImgForm, setSrcImgForm] = useState("https://via.placeholder.com/300");
+    const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
 
     function dateFormat(date) {
         return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -24,6 +26,8 @@ export default function AjouterOiseau(props) {
             srcImage: formData.get("imageChoisi").name
         }
 
+
+        setDataCritiques(oiseaux=> oiseaux.concat(nouveauOiseau))
         ajouterOiseau(nouveauOiseau);
         alert("L'oiseau #" + idOiseau + " a été créée");
         props.toggleModal();

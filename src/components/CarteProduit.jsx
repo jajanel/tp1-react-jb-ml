@@ -1,15 +1,17 @@
-import { useState } from "react";
+import {useContext, useState} from "react";
 import DescriptionOiseau from "./DescriptionOiseau.jsx";
 import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
 import ListeCritiques from "./ListeCritiques.jsx";
 import CatalogueStatistiques from "./CatalogueStatistiques.jsx";
+import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 
 export default function CarteProduit(props) {
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
     const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
     const [oiseauASupprimer, setOiseauASupprimer] = useState(null);
+    const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
 
     const toggleModalDescription = () => {
         setEstOuvertDescription(!estOuvertDescription);
@@ -36,7 +38,7 @@ export default function CarteProduit(props) {
         }
     };
 
-    const filteredCritiques = props.dataCritiques.filter(critique => critique.idOiseau === props.id);
+    const filteredCritiques = dataCritiques.filter(critique => critique.idOiseau === props.id);
 
     return (
         <>
