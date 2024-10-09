@@ -30,7 +30,6 @@ export default function DescriptionOiseau(props) {
                                                 <select
                                                     className="form-select" disabled>
                                                     <option defaultValue={props.categorie}>{props.categorie}</option>
-                                                    <hr/>
                                                     {/*Ici il faut utiliser une .map sur les différentes catégories existante.
                                                      La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
                                                     <option value="">Poule</option>
