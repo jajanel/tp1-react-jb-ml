@@ -2,7 +2,6 @@ import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
 import {ajouterCritique, supprimerCritique} from "../classes/gestionCatalogueCritique.js";
 import {getCritiques} from "../classes/gestionCatalogueCritique.js";
-import {dataCritiques} from "../assets/critiques.js";
 
 export default function ListeCritiques(props) {
 
@@ -28,11 +27,7 @@ export default function ListeCritiques(props) {
         ajouterCritique(nouvelleCritique);
     }
 
-    const handleSupprimerCritique = (idCritique) => {
-        supprimerCritique(idCritique);
-        props.setDataCritiques(prevCritiques => prevCritiques.filter(critique => critique.idCritique !== idCritique));
-    };
-
+   
     return (
         <>
             <div>

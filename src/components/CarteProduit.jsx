@@ -62,6 +62,7 @@ export default function CarteProduit(props) {
                     />
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                     <ListeCritiques
+                        key={props.id}
                         id={props.id}
                         categorie={props.categorie}
                         race={props.race}
