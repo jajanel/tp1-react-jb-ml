@@ -32,7 +32,13 @@ export default function CatalogueOiseaux(props) {
                 <button className="btn btn-sm btn-secondary" onClick={toggleModalAjouterOiseau}>
                     Ajouter un oiseau
                 </button>
-                <AjouterOiseau estOuvert={estOuvert} toggleModal={toggleModalAjouterOiseau} />
+                <AjouterOiseau
+                    estOuvert={estOuvert}
+                    toggleModal={toggleModalAjouterOiseau}
+                    dataCritiqueState={[dataOiseau, setDataOiseau]}
+                    dataOiseauState={[dataCritiques, setDataCritiques]}
+
+                />
             </div>
             <div className="container-fluid">
                 <div className="row">
