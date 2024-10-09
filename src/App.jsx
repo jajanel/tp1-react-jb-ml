@@ -43,8 +43,6 @@ function App() {
         supprimerOiseau(idOiseau);
         filtrerEtMettreAJourOiseaux(idOiseau, setDataOiseau);
         filtrerEtMettreAJourCritiques(idOiseau, setDataCritiques);
-        // TODO À commenter avant de remttre
-        console.log("Oiseau supprimé avec l'ID:", idOiseau);
     };
 
     return (
