@@ -6,13 +6,18 @@ import CatalogueStatistiques from "./CatalogueStatistiques.jsx";
 
 export default function CatalogueOiseaux(props) {
     const [estOuvert, setEstOuvert] = useState(false);
-    const [dataOiseau, setDataOiseau] = useContext(DataoiseauContext);
-    const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
+    //const [dataOiseau, setDataOiseau] = useContext(DataoiseauContext);
+   // const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
+    const [dataOiseau, setDataOiseau] = props.dataOiseauState;
+    const [dataCritiques, setDataCritiques] = props.dataCritiqueState;
     const [estOuvertStatistiques,setEstOuvertStatistiques] = props.ouvertStatistiquesState;
 
     const toggleModalAjouterOiseau = () => {
         setEstOuvert(!estOuvert);
     };
+
+
+
     return (<>
         {/*afficher stats*/}
         {estOuvertStatistiques&&<CatalogueStatistiques
@@ -34,6 +39,7 @@ export default function CatalogueOiseaux(props) {
                     {props.oiseauxFiltre.map((oiseau) => (
                         <div className="col-xl-4 col-xxl-3 col-md-6 col-lg-6 align-content-center" key={oiseau.idOiseau}>
                             <CarteProduit
+                                key={oiseau.idOiseau}
                                 tuerOiseau={props.tuerOiseau}
                                 id={oiseau.idOiseau}
                                 categorie={oiseau.categorie}
@@ -42,6 +48,8 @@ export default function CatalogueOiseaux(props) {
                                 prix={oiseau.prix}
                                 srcImage={oiseau.srcImage}
                                 datePublication={oiseau.datePublication}
+                                dataCritiques={dataCritiques}
+                                setDataCritiques={setDataCritiques}
                             />
                         </div>
                     ))}
