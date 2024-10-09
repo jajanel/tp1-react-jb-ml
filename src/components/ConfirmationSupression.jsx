@@ -22,6 +22,7 @@ export default function ConfirmationSupression(props) {
                                     <button className="btn btn-danger"  onClick={() => {
                                         props.confirmerSuppressionOiseau();
                                         props.toggleModalConfirmation();
+                                        alert("L'oiseau a été supprimé");
                                     }}>Supprimer</button>
                                 </div>
                             </div>
