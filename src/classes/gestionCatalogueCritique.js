@@ -46,6 +46,21 @@ class GestionCatalogueCritique {
     sauvegarder() {
         localStorage.setItem("dataCritiques", JSON.stringify(this.critiques));
     }
+
+
+    //Calculer la moyenne des notes des critiques
+    calculerMoyenneNotes(){
+        let moyenne = 0;
+        let somme = 0;
+        let nbNotes = getCritiques().length;
+
+        for (let i = 0; i < nbNotes; i++){
+            somme += getCritiques()[i].note;
+        }
+        moyenne = somme / nbNotes;
+        return moyenne;
+    }
+
 }
 
 
