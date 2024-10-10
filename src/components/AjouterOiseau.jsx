@@ -26,7 +26,6 @@ export default function AjouterOiseau(props) {
             srcImage: formData.get("imageChoisi").name
         }
 
-
         setDataCritiques(oiseaux=> oiseaux.concat(nouveauOiseau))
         ajouterOiseau(nouveauOiseau);
         alert("L'oiseau #" + idOiseau + " a été créée");
@@ -119,7 +118,7 @@ export default function AjouterOiseau(props) {
                                 <button className="btn btn-danger" type="button"
                                         onClick={handleRemettrePlaceholder}>Annuler
                                 </button>
-                                <button className="btn btn-success" type="submit" onClick={props.toggleModal}> Ajouter
+                                <button className="btn btn-success" type="submit"> Ajouter
                                 </button>
                             </div>
                         </div>
