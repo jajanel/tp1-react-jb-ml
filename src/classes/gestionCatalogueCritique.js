@@ -11,7 +11,11 @@ class GestionCatalogueCritique {
         return this.critiques
     }
 
-
+    /**
+     * Retourne la moyenne des notes des critiques selon la catégorie passée en paramètre
+     * @param categorie la catégorie des oiseaux
+     * @returns la moyenne des notes des critiques
+     */
     getNotes(categorie) {
         let critiquesFiltrees;
 
@@ -20,6 +24,7 @@ class GestionCatalogueCritique {
         } else {
             const oiseaux = dataOiseau.filter(oiseau => oiseau.categorie === categorie);
             const oiseauIds = oiseaux.map(oiseau => oiseau.idOiseau);
+            //Filtrer les critiques et met dans le tableau critiquesFiltrees les critiques des oiseaux de la catégorie passée en paramètre
             critiquesFiltrees = this.getCritiques().filter(critique => oiseauIds.includes(critique.idOiseau));
         }
 

@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { getNotes } from "../classes/gestionCatalogueCritique.js";
 
 export default function CatalogueStatistiques(props) {
+    //valeur de base des moyennes
     const [moyennes, setMoyennes] = useState({ tous: 0, poule: 0, canard: 0, oie: 0, dinde: 0 });
 
+    //Si le modal est ouvert, on calcule les moyennes des notes pour chaque catégorie
     useEffect(() => {
         if (props.estOuvertStatistiques) {
             setMoyennes({
@@ -30,6 +32,7 @@ export default function CatalogueStatistiques(props) {
                                             maintenant triés par note.</h6>
                                     </div>
                                     <hr/>
+
                                     <div className="row d-flex text-center pb-3">
                                         <div className="col">Tous:<br/> {moyennes.tous}/100</div>
                                         <div className="col">Poules:<br/> {moyennes.poule}/100</div>
