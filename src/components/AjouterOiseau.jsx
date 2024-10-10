@@ -5,7 +5,7 @@ import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 export default function AjouterOiseau(props) {
     // Valeur par défaut de l'image à afficher dans le formulaire pour l'ajout de l'oiseau
     const [srcImgForm, setSrcImgForm] = useState("https://via.placeholder.com/300");
-    const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
+    const [dataOiseaux, setDataOiseaux] = useContext(DataoiseauContext);
 
     function dateFormat(date) {
         return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -26,7 +26,7 @@ export default function AjouterOiseau(props) {
             srcImage: formData.get("imageChoisi").name
         }
 
-        setDataCritiques(oiseaux=> oiseaux.concat(nouveauOiseau))
+        setDataOiseaux(oiseaux=> oiseaux.concat(nouveauOiseau))
         ajouterOiseau(nouveauOiseau);
         alert("L'oiseau #" + idOiseau + " a été créée");
         props.toggleModal();
@@ -73,9 +73,7 @@ export default function AjouterOiseau(props) {
                                     <div className="pb-4">
                                         <label htmlFor="categorie" className="form-label">Catégorie</label>
                                         <select className="form-select" name="categorie">
-                                            <option defaultValue="Choisir la catégorie de volaille"
-                                                    value="">Choisir la catégorie de volaille
-                                            </option>
+                                            <option defaultValue="Choisir la catégorie de volaille">Choisir la catégorie de volaille</option>
                                             <option value="poule">Poule</option>
                                             <option value="canard">Canard</option>
                                             <option value="Oie">Oie</option>
@@ -93,9 +91,7 @@ export default function AjouterOiseau(props) {
                                     <div className="pb-4">
                                         <label htmlFor="origine" className="form-label">Origine</label>
                                         <select className="form-select" name="origine">
-                                            <option defaultValue="Choisir la région d'origine">Choisir la région
-                                                d'origine
-                                            </option>
+                                            <option defaultValue="Choisir la région d'origine">Choisir la région d'origine</option>
                                             <option value="afrique">Afrique</option>
                                             <option value="amerique">Amérique</option>
                                             <option value="europe">Europe</option>
@@ -107,8 +103,7 @@ export default function AjouterOiseau(props) {
                                         <label htmlFor="datePublication" className="form-label">Date de
                                             publication</label>
                                         <br/>
-                                        <input disabled type="date" className="form-control"
-                                               id="datePublication" name="datePublication" value=""/>
+                                        <input disabled type="date" className="form-control" id="datePublication" name="datePublication" />
                                     </div>
                                 </div>
                             </div>
