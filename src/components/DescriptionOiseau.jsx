@@ -9,7 +9,10 @@ export default function DescriptionOiseau(props) {
                     (<div className="popup">
                             <div className="card border-0 ">
                                 <div className="card-header bg-white">
-                                    <h5 className="card-title text-uppercase">Description</h5>
+                                    {props.estOuvertModifDescription ?
+                                        <h5 className="card-title text-uppercase">Modifier description</h5> :
+                                        <h5 className="card-title text-uppercase">Description</h5>
+                                    }
                                 </div>
                                 <div className="card-body">
                                     <div className="row">
@@ -56,7 +59,6 @@ export default function DescriptionOiseau(props) {
                                                 <p className="form-control disabled">{props.prix}</p>
                                             </div>
                                             <div className="pb-4">
-
                                                 <label className="form-label">Origine</label>
                                                 {/*Ici il faut utiliser une .map sur les différentes catégories existante.
                                                      La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
@@ -84,10 +86,12 @@ export default function DescriptionOiseau(props) {
                                 <div className="row">
                                     <div
                                         className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
-                                        <button className="btn btn-danger" onClick={props.toggleModalDescription}>Annuler
-                                        </button>
-                                        <button className="btn btn-success" onClick={props.toggleModalModifierDescription}>Modifier
-                                        </button>
+                                        <button className="btn btn-danger" onClick={props.toggleModalDescription}>Annuler</button>
+                                        {props.estOuvertModifDescription ?
+                                            <button className="btn btn-success" onClick={props.toggleModalModifDescription}>Confirmer</button> :
+                                            <button className="btn btn-success" onClick={props.toggleModalModifDescription}>Modifier</button>
+                                        }
+
                                     </div>
                                 </div>
                             </div>
