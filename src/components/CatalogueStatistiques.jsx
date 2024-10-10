@@ -1,9 +1,15 @@
-import {getNotes} from "../classes/gestionCatalogueCritique.js";
+import {getNotes, getCritiques} from "../classes/gestionCatalogueCritique.js";
 
 export default function CatalogueStatistiques(props) {
 
     function moyenne(categorie){
 
+        if(categorie == "tous"){
+            let avg = getNotes(categorie);
+
+        return avg;
+        }
+        else return 0;
     }
 
     return (
@@ -20,6 +26,7 @@ export default function CatalogueStatistiques(props) {
                                     </div>
                                     <hr/>
                                     <div className="row d-flex text-center pb-3">
+                                        <div className="col">Tous:<br/> {moyenne("tous")}/100</div>
                                         <div className="col">Poules:<br/> {moyenne("poule")}/100</div>
                                         <div className="col">Canards:<br/> {moyenne("canard")}/100</div>
                                         <div className="col">Oies: <br/>{moyenne("oie")}/100</div>

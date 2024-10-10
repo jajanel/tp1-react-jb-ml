@@ -10,13 +10,30 @@ class GestionCatalogueCritique {
         return this.critiques
     }
 
-    getNotes(){
-        let notes;
+    getNotes(categorie){
+        let notes = [50, 100]
+        let somme = 0;
+        let avg = 0;
+        let critiques = getCritiques();
+        let nbNotes = 0;
 
-        let nbNotes = getCritiques().length;
+        notes.forEach((critique) => {
+            //console.log(critique.note);
+            somme += critique;
+            //somme += critique.note;
+            nbNotes++;
+        });
 
+        critiques.forEach((critique) => {
+            console.log(critique.note);
+            somme += critique.note;
+            nbNotes++;
+        });
+        
+        avg = somme / nbNotes;
+        console.log("Moyenne categorie " + categorie + ": " + avg);
 
-        return nbNotes;
+        return avg;
     }
 
 // Ajouter une critique à la liste
