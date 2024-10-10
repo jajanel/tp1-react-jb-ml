@@ -1,4 +1,5 @@
 import { dataCritiques } from "../assets/critiques.js";
+import {dataOiseau} from "../assets/oiseaux.js";
 
 class GestionCatalogueCritique {
     constructor() {
@@ -10,31 +11,25 @@ class GestionCatalogueCritique {
         return this.critiques
     }
 
-    getNotes(categorie){
-        let notes = [50, 100]
-        let somme = 0;
-        let avg = 0;
-        let critiques = getCritiques();
-        let nbNotes = 0;
 
-        notes.forEach((critique) => {
-            //console.log(critique.note);
-            somme += critique;
-            //somme += critique.note;
-            nbNotes++;
-        });
+    getNotes(categorie) {
+        let critiquesFiltrees;
 
-        critiques.forEach((critique) => {
-            console.log(critique.note);
-            somme += critique.note;
-            nbNotes++;
-        });
-        
-        avg = somme / nbNotes;
-        console.log("Moyenne categorie " + categorie + ": " + avg);
+        if (categorie === "tous") {
+            critiquesFiltrees = this.getCritiques();
+        } else {
+            const oiseaux = dataOiseau.filter(oiseau => oiseau.categorie === categorie);
+            const oiseauIds = oiseaux.map(oiseau => oiseau.idOiseau);
+            critiquesFiltrees = this.getCritiques().filter(critique => oiseauIds.includes(critique.idOiseau));
+        }
 
-        return avg;
+        const sommeNotes = critiquesFiltrees.reduce((acc, critique) => acc + critique.note, 0);
+        const moyenne = critiquesFiltrees.length ? sommeNotes / critiquesFiltrees.length : 0;
+
+        // Retourner la moyenne avec deux décimales
+        return moyenne.toFixed(2);
     }
+
 
 // Ajouter une critique à la liste
     ajouterCritique(nouvelleCritique) {
@@ -65,19 +60,6 @@ class GestionCatalogueCritique {
     }
 
 
-    //Calculer la moyenne des notes des critiques
-    calculerMoyenneNotes(){
-        let moyenne = 0;
-        let somme = 0;
-        let nbNotes = getCritiques().length;
-
-        for (let i = 0; i < nbNotes; i++){
-            somme += getCritiques()[i].note;
-        }
-        moyenne = somme / nbNotes;
-        return moyenne;
-    }
-
 }
 
 
@@ -89,5 +71,4 @@ export const supprimerCritiquesParOiseau = gestionCatalogueCritique.supprimerCri
 export const filtrerEtMettreAJourCritiques = gestionCatalogueCritique.filtrerEtMettreAJourCritiques.bind(gestionCatalogueCritique);
 export const getCritiques = gestionCatalogueCritique.getCritiques.bind(gestionCatalogueCritique);
 export const getNotes = gestionCatalogueCritique.getNotes.bind(gestionCatalogueCritique);
-
 export default GestionCatalogueCritique;

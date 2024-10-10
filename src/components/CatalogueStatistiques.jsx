@@ -1,16 +1,20 @@
-import {getNotes, getCritiques} from "../classes/gestionCatalogueCritique.js";
+import { useState, useEffect } from 'react';
+import { getNotes } from "../classes/gestionCatalogueCritique.js";
 
 export default function CatalogueStatistiques(props) {
+    const [moyennes, setMoyennes] = useState({ tous: 0, poule: 0, canard: 0, oie: 0, dinde: 0 });
 
-    function moyenne(categorie){
-
-        if(categorie == "tous"){
-            let avg = getNotes(categorie);
-
-        return avg;
+    useEffect(() => {
+        if (props.estOuvertStatistiques) {
+            setMoyennes({
+                tous: getNotes("tous"),
+                poule: getNotes("poule"),
+                canard: getNotes("canard"),
+                oie: getNotes("oie"),
+                dinde: getNotes("dinde")
+            });
         }
-        else return 0;
-    }
+    }, [props.estOuvertStatistiques]);
 
     return (
         <>
@@ -21,18 +25,18 @@ export default function CatalogueStatistiques(props) {
                             <div className="card border-0 ">
                                 <div className="row text-center">
                                     <div className="card-header pb-3">
-                                    <h1 className="my-3 card-title text-center">Statistiques</h1>
-                                    <h6 className="card-subtitle"> Les oiseaux du catalogue ci-dessous sont maintenant triés par note.</h6>
+                                        <h1 className="my-3 card-title text-center">Statistiques</h1>
+                                        <h6 className="card-subtitle"> Les oiseaux du catalogue ci-dessous sont
+                                            maintenant triés par note.</h6>
                                     </div>
                                     <hr/>
                                     <div className="row d-flex text-center pb-3">
-                                        <div className="col">Tous:<br/> {moyenne("tous")}/100</div>
-                                        <div className="col">Poules:<br/> {moyenne("poule")}/100</div>
-                                        <div className="col">Canards:<br/> {moyenne("canard")}/100</div>
-                                        <div className="col">Oies: <br/>{moyenne("oie")}/100</div>
-                                            <div className="col">Dindes: <br/>{moyenne("dinde")}/100</div>
+                                        <div className="col">Tous:<br/> {moyennes.tous}/100</div>
+                                        <div className="col">Poules:<br/> {moyennes.poule}/100</div>
+                                        <div className="col">Canards:<br/> {moyennes.canard}/100</div>
+                                        <div className="col">Oies: <br/>{moyennes.oie}/100</div>
+                                        <div className="col">Dindes: <br/>{moyennes.dinde}/100</div>
                                     </div>
-
                                     <hr/>
                                 </div>
                                 <div className="row">
