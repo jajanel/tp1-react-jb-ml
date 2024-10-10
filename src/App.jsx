@@ -7,6 +7,7 @@ import { dataCritiques as donneesCritiquesDefaut } from "./assets/critiques.js";
 import { filtrerEtMettreAJourOiseaux, supprimerOiseau } from "./classes/gestionCatalogueOiseaux.js";
 import { filtrerEtMettreAJourCritiques } from "./classes/gestionCatalogueCritique.js";
 import {DataoiseauContext} from "./components/contexts/DataOiseauContext.jsx"
+import {DataCritiqueContext} from "./components/contexts/DataCritiqueContext.jsx";
 
 // Fonction pour obtenir les données du local storage ou utiliser les données par défaut
 const getDonneesLocalStorage = (key, donneesParDefaut) => {
@@ -48,6 +49,7 @@ function App() {
     return (
         <>
             <DataoiseauContext.Provider value={[dataOiseau, setDataOiseau]}>
+                <DataCritiqueContext.Provider value={[dataCritiques, setDataCritiques]}>
                 <Navbar
                     surChangementCategorie={handleChangementCategorie}
                     dataCritiqueState={[dataCritiques, setDataCritiques]}
@@ -62,6 +64,7 @@ function App() {
                     tuerOiseau={handleTuerOiseau}
                     ouvertStatistiquesState={ouvertStatistiquesState}
                 />
+                </DataCritiqueContext.Provider>
             </DataoiseauContext.Provider>
         </>
     );
