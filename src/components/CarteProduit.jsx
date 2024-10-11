@@ -11,7 +11,6 @@ export default function CarteProduit(props) {
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
     const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
     const [oiseauASupprimer, setOiseauASupprimer] = useState(null);
-    //const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
 
     const toggleModalDescription = () => {
         setEstOuvertDescription(!estOuvertDescription);

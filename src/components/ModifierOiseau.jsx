@@ -1,5 +1,9 @@
 import {useContext, useState} from "react";
-import {ajouterOiseau, getOiseaux, modifierOiseau} from "../classes/gestionCatalogueOiseaux.js";
+import {
+    ajouterOiseau,
+    filtrerEtMettreAJourOiseaux, modifierOiseau,
+    supprimerOiseau
+} from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 import Oiseau from "../classes/Oiseau.js";
 
@@ -25,11 +29,8 @@ export default function ModifierOiseau(props) {
             datePublication: props.date,
             srcImage: srcImgForm
         }
-
         if(verrifierInfos(nouveauOiseau)){
-            setDataOiseaux(oiseaux=> oiseaux.concat(nouveauOiseau))
-            props.tuerOiseau(props.id);
-            ajouterOiseau(nouveauOiseau);
+            modifierOiseau(props.id, nouveauOiseau);
             alert("L'oiseau #" + props.id + " a été modifié");
             props.toggleModalModifDescription();
         }
