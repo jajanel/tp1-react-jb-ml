@@ -31,6 +31,7 @@ export default function AjouterOiseau(props) {
             setDataOiseaux(oiseaux=> oiseaux.concat(nouveauOiseau))
             ajouterOiseau(nouveauOiseau);
             alert("L'oiseau #" + idOiseau + " a été créée");
+            handleRemettrePlaceholder();
             props.toggleModal();
         }
 
@@ -128,10 +129,8 @@ export default function AjouterOiseau(props) {
                         <div className="row">
                             <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
                                 <button className="btn btn-danger" type="button"
-                                        onClick={handleRemettrePlaceholder}>Annuler
-                                </button>
-                                <button className="btn btn-success" type="submit"> Ajouter
-                                </button>
+                                        onClick={handleRemettrePlaceholder}>Annuler</button>
+                                <button className="btn btn-success" type="submit"> Ajouter</button>
                             </div>
                         </div>
                     </div>
