@@ -76,9 +76,8 @@ export default function ModifierOiseau(props) {
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center">
-                                    <div className="ajouterPhoto rounded-3">
-                                        <label htmlFor="formFile" className="form-label">Choisir votre
-                                            image</label>
+                                    <div className="ajouterPhoto rounded-3 text-start">
+                                        <label htmlFor="formFile" className="form-label">Choisir votre image</label>
                                         <img src={srcImgForm} className="card-img image-choisie"
                                              alt="image selectionnée par l'utilisateur"/>
                                         <input className="form-control form-control mb-5" id="imageChoisi"
@@ -87,7 +86,7 @@ export default function ModifierOiseau(props) {
                                     </div>
                                 </div>
                                 <div className="col mx-5">
-                                    <div className="pb-4">
+                                    <div className="pb-4 text-start">
                                         <label htmlFor="categorie" className="form-label">Catégorie</label>
                                         <select className="form-select" name="categorie">
                                             <option defaultValue="Choisir la catégorie de volaille">Choisir la catégorie de volaille</option>
@@ -97,15 +96,15 @@ export default function ModifierOiseau(props) {
                                             <option value="dinde">Dinde</option>
                                         </select>
                                     </div>
-                                    <div className="pb-4">
+                                    <div className="pb-4 text-start">
                                         <label htmlFor="race" className="form-label">Race</label>
                                         <input defaultValue={props.race} type="text" className="form-control" id="race" name="race"/>
                                     </div>
-                                    <div className="pb-4">
+                                    <div className="pb-4 text-start">
                                         <label htmlFor="prix" className="form-label">Prix</label>
-                                        <input defaultValue={props.prix} type="number" className="form-control" id="prix" name="prix"/>
+                                        <input defaultValue={props.prix} type="number" className="form-control" id="prix" name="prix"  min={0} max={10000}/>
                                     </div>
-                                    <div className="pb-4">
+                                    <div className="pb-4 text-start">
                                         <label htmlFor="origine" className="form-label">Origine</label>
                                         <select className="form-select" name="origine">
                                             <option defaultValue={props.origine}>Choisir la région d'origine</option>
@@ -116,7 +115,7 @@ export default function ModifierOiseau(props) {
                                             <option value="oceanie">Océanie</option>
                                         </select>
                                     </div>
-                                    <div className="pb-4">
+                                    <div className="pb-4 text-start">
                                         <label htmlFor="datePublication" className="form-label">Date de
                                             publication</label>
                                         <br/>

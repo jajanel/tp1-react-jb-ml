@@ -8,7 +8,6 @@ export default function DescriptionOiseau(props) {
         setEstOuvertModifDescription(!estOuvertModifDescription);
     };
 
-// Changer le "disabled" par un context ou redux pour permettre la modification des champs selon le bouton modifier cliqué ou non.
     return (
 
         <>
@@ -36,7 +35,7 @@ export default function DescriptionOiseau(props) {
 
                                         </div>
                                         <div className="col mx-5 text-start">
-                                            <div className={"pb-4"}>
+                                            <div className="pb-4">
                                                 <label className="form-label">Catégorie</label>
                                                 <select
                                                     className="form-select" disabled>
