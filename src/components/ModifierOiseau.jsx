@@ -1,9 +1,4 @@
 import {useContext, useState} from "react";
-import {
-    ajouterOiseau,
-    filtrerEtMettreAJourOiseaux, modifierOiseau,
-    supprimerOiseau
-} from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 
 

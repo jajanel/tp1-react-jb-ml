@@ -41,7 +41,11 @@ export default function AjouterOiseau(props) {
         }
     }
 
-    function verrifierInfos(oiseau){
+    const jouerBruit = () => {
+        bruitOiseau.play();
+    }
+
+    function verifierChampsAjouter(oiseau){
         let confirme = true;
         if(oiseau.prix === "" || oiseau.race === "" || oiseau.srcImage === "" || oiseau.origine === "Choisir la région d'origine" || oiseau.categorie === "Choisir la catégorie de volaille"){
             confirme = false;
