@@ -10,6 +10,10 @@ class GestionCatalogueOiseaux {
         return this.oiseaux;
     }
 
+    newIdOiseau(){
+        return this.oiseaux[this.oiseaux.length - 1].idOiseau + 1;
+    }
+
     // Ajouter un oiseau à la liste
     ajouterOiseau(nouvelOiseau) {
         this.oiseaux.push(nouvelOiseau);
@@ -22,7 +26,6 @@ class GestionCatalogueOiseaux {
             this.oiseaux[index] = { ...this.oiseaux[index], ...oiseauModifie };
             this.sauvegarder();
         }
-
     }
 
     // Supprimer un oiseau de la liste et ses critiques
@@ -57,5 +60,6 @@ export const modifierOiseau = gestionCatalogueOiseaux.modifierOiseau.bind(gestio
 export const supprimerOiseau = gestionCatalogueOiseaux.supprimerOiseau.bind(gestionCatalogueOiseaux);
 export const filtrerEtMettreAJourOiseaux = gestionCatalogueOiseaux.filtrerEtMettreAJourOiseaux.bind(gestionCatalogueOiseaux);
 export const getOiseaux = gestionCatalogueOiseaux.getOiseaux.bind(gestionCatalogueOiseaux);
+export const newIdOiseau = gestionCatalogueOiseaux.newIdOiseau.bind(gestionCatalogueOiseaux);
 
 export default GestionCatalogueOiseaux;

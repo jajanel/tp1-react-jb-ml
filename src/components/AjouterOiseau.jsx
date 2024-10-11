@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import { getOiseaux, ajouterOiseau } from "../classes/gestionCatalogueOiseaux.js";
+import { getOiseaux, ajouterOiseau, newIdOiseau } from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 import Oiseau from "../classes/Oiseau.js";
 
@@ -15,7 +15,7 @@ export default function AjouterOiseau(props) {
     function creerOiseau(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
-        let idOiseau = getOiseaux().length + 1;
+        let idOiseau = newIdOiseau();
 
         const nouveauOiseau = {
             idOiseau: idOiseau,
