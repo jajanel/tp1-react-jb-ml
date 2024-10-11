@@ -23,7 +23,7 @@ export default function ModifierOiseau(props) {
             prix: formData.get("prix"),
             origine: formData.get("origine"),
             datePublication: props.date,
-            srcImage: formData.get("imageChoisi").name
+            srcImage: srcImgForm
         }
 
         if(verrifierInfos(nouveauOiseau)){
