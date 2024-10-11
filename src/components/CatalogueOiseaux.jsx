@@ -17,7 +17,7 @@ export default function CatalogueOiseaux(props) {
 
 
     return (<>
-        {/*afficher stats*/}
+        {/*afficher la section des stats*/}
         {estOuvertStatistiques&&<CatalogueStatistiques
             dataCritiqueState={props.dataCritiqueState}
             estOuvertStatistiques={estOuvertStatistiques}
@@ -33,8 +33,9 @@ export default function CatalogueOiseaux(props) {
 
             />
         </div>
-        <div className="container-fluid">
+        <div className="container-fluid px-5">
             <div className="row">
+                {/*Boucle pour afficher les cartes produits filtrées soit par leur notes moyenne(si stats est ouvert) ou normalement (oiseauFiltre)*/}
                 {(props.oiseauxTriBool[0] ? props.oiseauxFiltre.toSorted((a, b) => getNoteOiseauSpecifique(b.idOiseau) - getNoteOiseauSpecifique(a.idOiseau)) : props.oiseauxFiltre).map((oiseau) => (
                     <div className="col-xl-4 col-xxl-3 col-md-6 col-lg-6 align-content-center" key={oiseau.idOiseau}>
                         <CarteProduit

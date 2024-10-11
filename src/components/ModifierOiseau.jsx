@@ -1,5 +1,11 @@
 import {useContext, useState} from "react";
+import {
+    ajouterOiseau,
+    filtrerEtMettreAJourOiseaux, modifierOiseau,
+    supprimerOiseau
+} from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
+
 
 export default function ModifierOiseau(props) {
     // Valeur par défaut de l'image à afficher dans le formulaire pour l'ajout de l'oiseau
@@ -10,10 +16,15 @@ export default function ModifierOiseau(props) {
         return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
     }
 
+    /**
+     * Fonction qui modifie un oiseau dans le catalogue après avoir vérifié que les champs sont remplis
+     * @param event le submit du bouton de modification
+     */
     function changerOiseau(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
 
+        //Les valeurs du "nouvel oiseau"
         const nouveauOiseau = {
             idOiseau: props.id,
             categorie: formData.get("categorie"),
@@ -23,10 +34,10 @@ export default function ModifierOiseau(props) {
             datePublication: props.date,
             srcImage: srcImgForm
         }
-        if(verrifierInfos(nouveauOiseau)){
-            setDataOiseaux(()=>dataOiseaux.filter((o)=>o.idOiseau !== props.id).concat(nouveauOiseau))
-            //modifierOiseau(props.id, nouveauOiseau);
 
+        //Appel de vérification des champs
+        if(verifierChampsDescription(nouveauOiseau)){
+            setDataOiseaux(()=>dataOiseaux.filter((o)=>o.idOiseau !== props.id).concat(nouveauOiseau))
             alert("L'oiseau #" + props.id + " a été modifié");
             props.toggleModalModifDescription();
         }
@@ -36,16 +47,23 @@ export default function ModifierOiseau(props) {
         }
     }
 
-    function verrifierInfos(oiseau){
+    /**
+     * Fonction qui vérifie si les champs sont remplis
+     * @param oiseau les valeurs de l'oiseau à vérifier
+     * @returns {boolean} si les champs sont remplis ou non
+     */
+    function verifierChampsDescription(oiseau){
         let confirme = true;
-
         if(oiseau.prix === "" || oiseau.race === "" || oiseau.srcImage === "" || oiseau.origine === "Choisir la région d'origine" || oiseau.categorie === "Choisir la catégorie de volaille"){
             confirme = false;
         }
-
         return confirme;
     }
 
+    /**
+     * Fonction qui permet de choisir une image pour l'oiseau
+     * @param event l'utilisateur qui choisi une image dans ses fichiers'
+     */
     function handleChoixImage(event) {
         const fichierChoisi = event.target.files[0];
         if (fichierChoisi) {
@@ -55,11 +73,6 @@ export default function ModifierOiseau(props) {
             };
             fileReader.readAsDataURL(fichierChoisi);
         }
-    }
-
-    function handleRemettrePlaceholder() {
-        setSrcImgForm(props.srcImage);
-        props.toggleModal();
     }
 
     return (<>
@@ -75,11 +88,8 @@ export default function ModifierOiseau(props) {
                                 <div className="col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center">
                                     <div className="ajouterPhoto rounded-3 text-start">
                                         <label htmlFor="formFile" className="form-label">Choisir votre image</label>
-                                        <img src={srcImgForm} className="card-img image-choisie"
-                                             alt="image selectionnée par l'utilisateur"/>
-                                        <input className="form-control form-control mb-5" id="imageChoisi"
-                                               name="imageChoisi" type="file" accept="image/*"
-                                               onChange={handleChoixImage}/>
+                                        <img src={srcImgForm} className="card-img image-choisie" alt="image selectionnée par l'utilisateur"/>
+                                        <input className="form-control form-control mb-5" id="imageChoisi" name="imageChoisi" type="file" accept="image/*" onChange={handleChoixImage}/>
                                     </div>
                                 </div>
                                 <div className="col mx-5">
@@ -113,8 +123,7 @@ export default function ModifierOiseau(props) {
                                         </select>
                                     </div>
                                     <div className="pb-4 text-start">
-                                        <label htmlFor="datePublication" className="form-label">Date de
-                                            publication</label>
+                                        <label htmlFor="datePublication" className="form-label">Date de publication</label>
                                         <br/>
                                         <input disabled value={props.date} type="date" className="form-control" id="datePublication" name="datePublication" />
                                     </div>
@@ -124,10 +133,8 @@ export default function ModifierOiseau(props) {
                         <div className="row">
                             <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
                                 <button className="btn btn-danger" type="button"
-                                        onClick={props.toggleModalModifDescription}>Annuler
-                                </button>
-                                <button className="btn btn-success" type="submit"> Confirmer
-                                </button>
+                                        onClick={props.toggleModalModifDescription}>Annuler</button>
+                                <button className="btn btn-success" type="submit"> Confirmer</button>
                             </div>
                         </div>
                     </div>

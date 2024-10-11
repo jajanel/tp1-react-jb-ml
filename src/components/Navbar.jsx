@@ -1,8 +1,6 @@
-import CatalogueStatistiques from "./CatalogueStatistiques.jsx";
-import {useState} from "react";
-
 export default function Navbar(props) {
 
+    // État de la section statistique ouvert ou non
     const [estOuvertStatistiques,setEstOuvertStatistiques] = props.ouvertStatistiquesState;
 
     // Ouvrir la section statistique ET afficher tout les oiseaux.

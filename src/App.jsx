@@ -42,6 +42,7 @@ function App() {
     // Filtrer les oiseaux selon la catégorie sélectionnée par l'utilisateur (valeur par défaut est tous les oiseaux)
     const oiseauxFiltre = categorieSelectionne === "tous" ? dataOiseau : dataOiseau.filter(oiseau => oiseau.categorie === categorieSelectionne);
 
+    // Fonction pour supprimer un oiseau du catalogue et mettre à jour les données
     const handleTuerOiseau = (idOiseau) => {
         supprimerOiseau(idOiseau);
         filtrerEtMettreAJourOiseaux(idOiseau, setDataOiseau);

@@ -2,8 +2,9 @@ body{
 user-select: none;
 }
 
+/* Style des popups */
 .popup {
-    width: 97%;
+    width: 94%;
     height: 85%;
     background-color: white;
     border-radius: 10px;
@@ -19,16 +20,19 @@ user-select: none;
     scroll-behavior: smooth;
 }
 
+/*Style des boutons descriptions et critique surles cartes produits*/
 .boutonCarte {
     width: 45%;
 }
 
+/*Style de l'image dans le popup de confirmation de suppression*/
 .img-confirmation {
     width: 40%;
     height: 20%;
     margin: auto;
 }
 
+/*Style du bouton  de suppression sur la carte produit*/
 .bouton-delete{
     margin-left: 48%;
 }

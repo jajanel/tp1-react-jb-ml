@@ -7,7 +7,6 @@ import {DataCritiqueContext} from "./contexts/DataCritiqueContext.jsx";
 export default function ListeCritiques(props) {
     const [dataCritique, setDataCritique] = useContext(DataCritiqueContext);
 
-
     //Création du format de la date pour affichage correct
     function dateFormat(date) {
         return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -53,7 +52,6 @@ export default function ListeCritiques(props) {
      */
     function verifierInfos(critique){
         let confirme = true;
-
         if(critique.beaute === "" || critique.temperament === "" || critique.utilisation === ""){
             confirme = false;
         }

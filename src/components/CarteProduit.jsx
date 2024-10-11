@@ -1,10 +1,8 @@
-import {useContext, useState} from "react";
+import { useState} from "react";
 import DescriptionOiseau from "./DescriptionOiseau.jsx";
-import MaCritique from "./MaCritique.jsx";
 import ConfirmationSupression from "./ConfirmationSupression.jsx";
 import ListeCritiques from "./ListeCritiques.jsx";
-import CatalogueStatistiques from "./CatalogueStatistiques.jsx";
-import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
+
 
 export default function CarteProduit(props) {
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
@@ -12,23 +10,24 @@ export default function CarteProduit(props) {
     const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
     const [oiseauASupprimer, setOiseauASupprimer] = useState(null);
 
+    //Les toggles pour ouvrir les "modals"
     const toggleModalDescription = () => {
         setEstOuvertDescription(!estOuvertDescription);
-    };
 
+    };
     const toggleModalCritique = () => {
         setEstOuvertCritique(!estOuvertCritique);
     };
-
     const toggleModalConfirmation = () => {
         setEstOuvertConfirmation(!estOuvertConfirmation);
     };
-
     const handleSupprimerOiseau = (idOiseau) => {
         setOiseauASupprimer(idOiseau);
         toggleModalConfirmation();
     };
-
+    /**
+     * Fonction pour confirmer la suppression de l'oiseau
+     */
     const confirmerSuppressionOiseau = () => {
         if (oiseauASupprimer !== null) {
             props.tuerOiseau(oiseauASupprimer);
@@ -37,6 +36,7 @@ export default function CarteProduit(props) {
         }
     };
 
+    //Filtrer les critiques pour l'oiseau spécifique
     const filteredCritiques = props.dataCritiques.filter(critique => critique.idOiseau === props.id);
 
     return (
@@ -75,8 +75,8 @@ export default function CarteProduit(props) {
                 <div className="card-footer">
                     <div className="btn-wrapper text-center d-flex justify-content-between">
                         <p className="card-title text-muted">Supprimer l'oiseau</p>
-                        <button type="button" className="btn btn-dark text-white btn-sm bouton-delete"  onClick={() => handleSupprimerOiseau(props.id)}>
-                            <span aria-hidden="true">&times;</span>
+                        <button type="button" className="btn btn-dark text-white btn-sm bouton-delete"
+                                onClick={() => handleSupprimerOiseau(props.id)}><span aria-hidden="true">&times;</span>
                         </button>
                         <ConfirmationSupression
                             estOuvertConfirmation={estOuvertConfirmation}

@@ -1,4 +1,4 @@
-import { dataOiseau } from "../assets/oiseaux.js";
+import {dataOiseau} from "../assets/oiseaux.js";
 import GestionCatalogueCritique from './gestionCatalogueCritique.js';
 
 class GestionCatalogueOiseaux {
@@ -6,29 +6,25 @@ class GestionCatalogueOiseaux {
         this.oiseaux = JSON.parse(localStorage.getItem("dataOiseau")) || dataOiseau;
     }
 
-    getOiseaux(){
+    getOiseaux() {
         return this.oiseaux;
     }
 
-    newIdOiseau(){
+    /**
+     * Retourne le nouvel id d'un oiseau
+     * @returns {*} le nouvel id d'un oiseau
+     */
+    newIdOiseau() {
         return this.oiseaux[this.oiseaux.length - 1].idOiseau + 1;
     }
 
-    // Ajouter un oiseau à la liste
+    // Ajouter un oiseau à la liste et sauvegarder
     ajouterOiseau(nouvelOiseau) {
         this.oiseaux.push(nouvelOiseau);
         this.sauvegarder();
     }
-// Modifier un oiseau dans la liste
-    modifierOiseau(idOiseau, oiseauModifie) {
-        const index = this.oiseaux.findIndex(oiseau => oiseau.idOiseau === idOiseau);
-        if (index !== -1) {
-            this.oiseaux[index] = { ...this.oiseaux[index], ...oiseauModifie };
-            this.sauvegarder();
-        }
-    }
 
-    // Supprimer un oiseau de la liste et ses critiques
+    // Supprimer un oiseau de la liste et ses critiques et sauvegarder
     supprimerOiseau(idOiseau) {
         this.oiseaux = this.oiseaux.filter(oiseau => oiseau.idOiseau !== idOiseau);
         const gestionCritique = new GestionCatalogueCritique();
@@ -36,7 +32,7 @@ class GestionCatalogueOiseaux {
         this.sauvegarder();
     }
 
-    // Filtrer les oiseaux et mettre à jour la liste
+    // Filtrer les oiseaux et mettre à jour la liste des oiseaux
     filtrerEtMettreAJourOiseaux(idOiseau, setDataOiseau) {
         const updatedOiseaux = this.oiseaux.filter(oiseau => oiseau.idOiseau !== idOiseau);
         setDataOiseau(updatedOiseaux);
@@ -47,19 +43,13 @@ class GestionCatalogueOiseaux {
         localStorage.setItem("dataOiseau", JSON.stringify(this.oiseaux));
     }
 
-    // Mettre à jour les données des oiseaux dans le local storage
-    updateDataOiseau() {
-        this.oiseaux = JSON.parse(localStorage.getItem("dataOiseau")) || dataOiseau;
-    }
 }
 
 // Exportation des fonctions pour l'utiliser dans le react
 const gestionCatalogueOiseaux = new GestionCatalogueOiseaux();
 export const ajouterOiseau = gestionCatalogueOiseaux.ajouterOiseau.bind(gestionCatalogueOiseaux);
-export const modifierOiseau = gestionCatalogueOiseaux.modifierOiseau.bind(gestionCatalogueOiseaux);
 export const supprimerOiseau = gestionCatalogueOiseaux.supprimerOiseau.bind(gestionCatalogueOiseaux);
 export const filtrerEtMettreAJourOiseaux = gestionCatalogueOiseaux.filtrerEtMettreAJourOiseaux.bind(gestionCatalogueOiseaux);
-export const getOiseaux = gestionCatalogueOiseaux.getOiseaux.bind(gestionCatalogueOiseaux);
 export const newIdOiseau = gestionCatalogueOiseaux.newIdOiseau.bind(gestionCatalogueOiseaux);
 
 export default GestionCatalogueOiseaux;

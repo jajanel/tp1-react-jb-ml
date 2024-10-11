@@ -1,6 +1,3 @@
-import {useContext} from "react";
-import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
-import {DataCritiqueContext} from "./contexts/DataCritiqueContext.jsx";
 
 export default function MaCritique(props) {
     return (<>
