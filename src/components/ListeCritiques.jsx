@@ -22,6 +22,7 @@ export default function ListeCritiques(props) {
         event.preventDefault();
         const formData = new FormData(event.target);
         let idCritique = newIdCritique();
+        let formCritique = document.getElementById("critiqueForm");
 
         const nouvelleCritique = {
             idCritique: idCritique,
@@ -38,6 +39,7 @@ export default function ListeCritiques(props) {
             setDataCritique(critique=> critique.concat(nouvelleCritique));
             ajouterCritique(nouvelleCritique);
             alert("La critique #" + idCritique + " a été créée");
+            formCritique.reset();
         }
         else{
             alert("un ou plusieurs champs sont vides")
