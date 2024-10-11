@@ -103,7 +103,7 @@ export default function AjouterOiseau(props) {
                                     </div>
                                     <div className="pb-4">
                                         <label htmlFor="prix" className="form-label">Prix</label>
-                                        <input type="number" className="form-control" id="prix" name="prix"/>
+                                        <input type="number" className="form-control" id="prix" name="prix"  min={0} max={10000}/>
                                     </div>
                                     <div className="pb-4">
                                         <label htmlFor="origine" className="form-label">Origine</label>
