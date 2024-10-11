@@ -6,6 +6,12 @@ class GestionCatalogueCritique {
         this.critiques = JSON.parse(localStorage.getItem("dataCritiques")) || dataCritiques;
     }
 
+    getNoteOiseauSpecifique(idOiseau) {
+        const critiqueParOiseau = this.critiques.filter(critique => critique.idOiseau === idOiseau);
+        this.sauvegarder();
+        return critiqueParOiseau.reduce((accumulateurNote, critique) => accumulateurNote + critique.note, 0) / critiqueParOiseau.length;
+    }
+
     // Retourne la liste des critiques
     getCritiques(){
         return this.critiques
@@ -74,6 +80,7 @@ class GestionCatalogueCritique {
 
 // Exportation des fonctions pour l'utiliser dans le react
 const gestionCatalogueCritique = new GestionCatalogueCritique();
+export const getNoteOiseauSpecifique = gestionCatalogueCritique.getNoteOiseauSpecifique.bind(gestionCatalogueCritique);
 export const ajouterCritique = gestionCatalogueCritique.ajouterCritique.bind(gestionCatalogueCritique);
 export const supprimerCritique = gestionCatalogueCritique.supprimerCritique.bind(gestionCatalogueCritique);
 export const supprimerCritiquesParOiseau = gestionCatalogueCritique.supprimerCritiquesParOiseau.bind(gestionCatalogueCritique);
