@@ -7,6 +7,7 @@ export default function AjouterOiseau(props) {
     // Valeur par défaut de l'image à afficher dans le formulaire pour l'ajout de l'oiseau
     const [srcImgForm, setSrcImgForm] = useState("https://via.placeholder.com/300");
     const [dataOiseaux, setDataOiseaux] = useContext(DataoiseauContext);
+    let bruitOiseau = new Audio("././assets/sons/chicken_1.mp3");
 
     function dateFormat(date) {
         return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
@@ -33,11 +34,16 @@ export default function AjouterOiseau(props) {
             alert("L'oiseau #" + idOiseau + " a été créée");
             handleRemettrePlaceholder();
             props.toggleModal();
+            jouerBruit();
         }
 
         else {
             alert("un ou plusieurs champs sont vides");
         }
+    }
+
+    const jouerBruit = () => {
+        bruitOiseau.play();
     }
 
     function verrifierInfos(oiseau){
