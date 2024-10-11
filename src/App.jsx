@@ -39,6 +39,7 @@ function App() {
     const oiseauxFiltre = categorieSelectionne === "tous" ? dataOiseau : dataOiseau.filter(oiseau => oiseau.categorie === categorieSelectionne);
 
     const handleTuerOiseau = (idOiseau) => {
+        console.log("appelé tuer oiseaeaya: ", idOiseau)
         supprimerOiseau(idOiseau);
         filtrerEtMettreAJourOiseaux(idOiseau, setDataOiseau);
         filtrerEtMettreAJourCritiques(idOiseau, setDataCritiques);

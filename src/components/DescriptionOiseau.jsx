@@ -98,6 +98,7 @@ export default function DescriptionOiseau(props) {
                 origine={props.origine}
                 date={props.date}
                 srcImage={props.srcImage}
+                tuerOiseau={props.tuerOiseau}
                 toggleModalModifDescription={toggleModalModifDescription}
                 estOuvertModifDescription={estOuvertModifDescription}
             />

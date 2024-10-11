@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import { getOiseaux, modifierOiseau } from "../classes/gestionCatalogueOiseaux.js";
+import {ajouterOiseau, getOiseaux, modifierOiseau} from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 import Oiseau from "../classes/Oiseau.js";
 
@@ -28,7 +28,8 @@ export default function ModifierOiseau(props) {
 
         if(verrifierInfos(nouveauOiseau)){
             setDataOiseaux(oiseaux=> oiseaux.concat(nouveauOiseau))
-            modifierOiseau(props.id, nouveauOiseau);
+            props.tuerOiseau(props.id);
+            ajouterOiseau(nouveauOiseau);
             alert("L'oiseau #" + props.id + " a été modifié");
             props.toggleModalModifDescription();
         }

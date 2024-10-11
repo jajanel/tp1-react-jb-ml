@@ -59,6 +59,7 @@ export default function CarteProduit(props) {
                         srcImage={props.srcImage}
                         estOuvertDescription={estOuvertDescription}
                         toggleModalDescription={toggleModalDescription}
+                        tuerOiseau={confirmerSuppressionOiseau}
                     />
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                     <ListeCritiques
