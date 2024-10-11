@@ -6,6 +6,7 @@ import {
 } from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 import Oiseau from "../classes/Oiseau.js";
+import oiseau from "../classes/Oiseau.js";
 
 export default function ModifierOiseau(props) {
     // Valeur par défaut de l'image à afficher dans le formulaire pour l'ajout de l'oiseau
@@ -30,7 +31,9 @@ export default function ModifierOiseau(props) {
             srcImage: srcImgForm
         }
         if(verrifierInfos(nouveauOiseau)){
-            modifierOiseau(props.id, nouveauOiseau);
+            setDataOiseaux(()=>dataOiseaux.filter((o)=>o.idOiseau !== props.id).concat(nouveauOiseau))
+            //modifierOiseau(props.id, nouveauOiseau);
+
             alert("L'oiseau #" + props.id + " a été modifié");
             props.toggleModalModifDescription();
         }
