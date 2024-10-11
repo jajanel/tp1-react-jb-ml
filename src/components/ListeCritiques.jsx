@@ -1,6 +1,6 @@
 import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
-import {ajouterCritique, supprimerCritique} from "../classes/gestionCatalogueCritique.js";
+import {ajouterCritique, supprimerCritique, newIdCritique} from "../classes/gestionCatalogueCritique.js";
 import {getCritiques} from "../classes/gestionCatalogueCritique.js";
 
 export default function ListeCritiques(props) {
@@ -12,7 +12,7 @@ export default function ListeCritiques(props) {
     function creerCritique(event, idOiseau) {
         event.preventDefault();
         const formData = new FormData(event.target);
-        let idCritique = getCritiques().length + 1;
+        let idCritique = newIdCritique();
 
         const nouvelleCritique = {
             idCritique: idCritique,

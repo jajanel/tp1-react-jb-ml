@@ -11,6 +11,10 @@ class GestionCatalogueCritique {
         return this.critiques
     }
 
+    newIdCritique(){
+        return this.critiques[this.critiques.length - 1].idCritique + 1;
+    }
+
     /**
      * Retourne la moyenne des notes des critiques selon la catégorie passée en paramètre
      * @param categorie la catégorie des oiseaux
@@ -76,4 +80,5 @@ export const supprimerCritiquesParOiseau = gestionCatalogueCritique.supprimerCri
 export const filtrerEtMettreAJourCritiques = gestionCatalogueCritique.filtrerEtMettreAJourCritiques.bind(gestionCatalogueCritique);
 export const getCritiques = gestionCatalogueCritique.getCritiques.bind(gestionCatalogueCritique);
 export const getNotes = gestionCatalogueCritique.getNotes.bind(gestionCatalogueCritique);
+export const newIdCritique = gestionCatalogueCritique.newIdCritique.bind(gestionCatalogueCritique);
 export default GestionCatalogueCritique;
