@@ -24,7 +24,7 @@ export default function AjouterOiseau(props) {
             prix: formData.get("prix"),
             origine: formData.get("origine"),
             datePublication: dateFormat(new Date),
-            srcImage: formData.get("imageChoisi").name
+            srcImage: srcImgForm
         }
 
         if(verrifierInfos(nouveauOiseau)){
