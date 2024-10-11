@@ -21,11 +21,16 @@ class GestionCatalogueOiseaux {
     }
 // Modifier un oiseau dans la liste
     modifierOiseau(idOiseau, oiseauModifie) {
+        supprimerOiseau(idOiseau);
+        ajouterOiseau(oiseauModifie);
+        /*
         const index = this.oiseaux.findIndex(oiseau => oiseau.idOiseau === idOiseau);
         if (index !== -1) {
             this.oiseaux[index] = { ...this.oiseaux[index], ...oiseauModifie };
             this.sauvegarder();
         }
+
+         */
     }
 
     // Supprimer un oiseau de la liste et ses critiques
