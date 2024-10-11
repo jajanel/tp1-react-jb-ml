@@ -5,20 +5,19 @@ export default function Navbar(props) {
 
     const [estOuvertStatistiques,setEstOuvertStatistiques] = props.ouvertStatistiquesState;
 
+    // Ouvrir la section statistique ET afficher tout les oiseaux.
     const toggleModalStatistiques = () => {
+        handleChoixCategorie("tous");
+        props.oiseauxTri[1](true);
         setEstOuvertStatistiques(estOuvertStatistiques=>!estOuvertStatistiques);
     };
 
     // Changer la catégorie des oiseaux affichés dans le catalogue selon la catégorie cliquée par l'utilisateur et ferme la section stats si ouverte.
     const handleChoixCategorie = (categorieOiseau) => {
         props.surChangementCategorie(categorieOiseau);
-        fermerStatistiquesToggle();
+        props.fermerStatistiquesToggle();
     };
 
-    // Fermer le modal statistiques (utilisé pour fermer la section statiostique lorsqu'on change la catégorie utilisée) pour revenir au mode normal.
-    const fermerStatistiquesToggle = () => {
-        setEstOuvertStatistiques(false);
-    }
 
     return (
         <>
@@ -48,11 +47,8 @@ export default function Navbar(props) {
                                 <a className="nav-link" onClick={() => handleChoixCategorie("dinde")}>Dindes</a>
                             </li>
                         </ul>
-                        <div className="dropdown">
-                            <button onClick={toggleModalStatistiques} className="btn btn-secondary" type="button" id="dropdownMenuButton"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                Statistiques
-                            </button>
+                        <div >
+                            <button onClick={toggleModalStatistiques} className="btn btn-secondary" type="button">Statistiques</button>
                         </div>
                     </div>
                 </div>
