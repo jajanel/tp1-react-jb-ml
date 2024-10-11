@@ -1,7 +1,6 @@
 import {useContext, useState} from "react";
-import { getOiseaux, ajouterOiseau, newIdOiseau } from "../classes/gestionCatalogueOiseaux.js";
+import { ajouterOiseau, newIdOiseau } from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
-import Oiseau from "../classes/Oiseau.js";
 
 export default function AjouterOiseau(props) {
     // Valeur par défaut de l'image à afficher dans le formulaire pour l'ajout de l'oiseau
@@ -27,7 +26,7 @@ export default function AjouterOiseau(props) {
             srcImage: srcImgForm
         }
 
-        if(verrifierInfos(nouveauOiseau)){
+        if(verifierChampsAjouter(nouveauOiseau)){
             setDataOiseaux(oiseaux=> oiseaux.concat(nouveauOiseau))
             ajouterOiseau(nouveauOiseau);
             alert("L'oiseau #" + idOiseau + " a été créée");
@@ -40,13 +39,11 @@ export default function AjouterOiseau(props) {
         }
     }
 
-    function verrifierInfos(oiseau){
+    function verifierChampsAjouter(oiseau){
         let confirme = true;
-
         if(oiseau.prix === "" || oiseau.race === "" || oiseau.srcImage === "" || oiseau.origine === "Choisir la région d'origine" || oiseau.categorie === "Choisir la catégorie de volaille"){
             confirme = false;
         }
-
         return confirme;
     }
 
