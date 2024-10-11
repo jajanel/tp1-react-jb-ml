@@ -1,14 +1,19 @@
 import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
-import {ajouterCritique, supprimerCritique, newIdCritique} from "../classes/gestionCatalogueCritique.js";
-import {getCritiques} from "../classes/gestionCatalogueCritique.js";
+import {ajouterCritique, newIdCritique} from "../classes/gestionCatalogueCritique.js";
 
 export default function ListeCritiques(props) {
 
+    //Création du format de la date pour affichage correct
     function dateFormat(date) {
         return date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     }
 
+    /**
+     * Fonction pour appeller les fonctions de gestionCatalogueCritique pour créer une critique
+     * @param event l'évènement de submit du formulaire
+     * @param idOiseau l'id de l'oiseau associé à la critique
+     */
     function creerCritique(event, idOiseau) {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -17,14 +22,15 @@ export default function ListeCritiques(props) {
         const nouvelleCritique = {
             idCritique: idCritique,
             idOiseau: idOiseau,
-            note: formData.get('note'),
-            temperament: formData.get('temperament'),
-            beaute: formData.get('beaute'),
-            utilisation: formData.get('utilisation'),
+            note: formData.get("note"),
+            temperament: formData.get("temperament"),
+            beaute: formData.get("beaute"),
+            utilisation: formData.get("utilisation"),
             dateCritique: dateFormat(new Date)
         }
 
-        if(verrifierInfos(nouvelleCritique)){
+        // Vérifier si les champs sont vides
+        if(verifierInfos(nouvelleCritique)){
             ajouterCritique(nouvelleCritique);
             alert("La critique #" + idCritique + " a été créée");
         }
@@ -35,8 +41,12 @@ export default function ListeCritiques(props) {
 
     }
 
-
-    function verrifierInfos(critique){
+    /**
+     * Fonction pour vérifier si les champs de la critique sont vides
+     * @param critique la critique à vérifier
+     * @returns {boolean} si les champs sont vides ou non
+     */
+    function verifierInfos(critique){
         let confirme = true;
 
         if(critique.beaute === "" || critique.temperament === "" || critique.utilisation === ""){
@@ -78,9 +88,7 @@ export default function ListeCritiques(props) {
                         </div>
                         <div className="row">
                             <div className="btn-wrapper text-center d-flex justify-content-start modal-footer">
-                                <button className="btn btn-danger" onClick={props.toggleModalCritique}>
-                                    Fermer
-                                </button>
+                                <button className="btn btn-danger" onClick={props.toggleModalCritique}>Fermer</button>
                             </div>
                         </div>
                     </div>

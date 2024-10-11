@@ -1,13 +1,13 @@
-import {useState, useEffect, useContext} from "react";
+import { useState, useEffect } from "react";
 import './App.css';
 import Navbar from "./components/Navbar.jsx";
 import CatalogueOiseaux from "./components/CatalogueOiseaux.jsx";
 import { dataOiseau as donnesOiseauxDefaut } from "./assets/oiseaux.js";
 import { dataCritiques as donneesCritiquesDefaut } from "./assets/critiques.js";
 import { filtrerEtMettreAJourOiseaux, supprimerOiseau } from "./classes/gestionCatalogueOiseaux.js";
-import { filtrerEtMettreAJourCritiques } from "./classes/gestionCatalogueCritique.js";
-import {DataoiseauContext} from "./components/contexts/DataOiseauContext.jsx"
-import {DataCritiqueContext} from "./components/contexts/DataCritiqueContext.jsx";
+import { DataoiseauContext } from "./components/contexts/DataOiseauContext.jsx";
+import { DataCritiqueContext } from "./components/contexts/DataCritiqueContext.jsx";
+import {filtrerEtMettreAJourCritiques} from "./classes/gestionCatalogueCritique.js";
 
 // Fonction pour obtenir les données du local storage ou utiliser les données par défaut
 const getDonneesLocalStorage = (key, donneesParDefaut) => {
@@ -22,8 +22,6 @@ function App() {
     const [dataOiseau, setDataOiseau] = useState(() => getDonneesLocalStorage("dataOiseau", donnesOiseauxDefaut));
     const [dataCritiques, setDataCritiques] = useState(() => getDonneesLocalStorage("dataCritiques", donneesCritiquesDefaut));
     const ouvertStatistiquesState = useState(false);
-
-
 
     // Resauvegarder les données dans le local storage à chauque changement
     useEffect(() => {
@@ -50,20 +48,20 @@ function App() {
         <>
             <DataoiseauContext.Provider value={[dataOiseau, setDataOiseau]}>
                 <DataCritiqueContext.Provider value={[dataCritiques, setDataCritiques]}>
-                <Navbar
-                    surChangementCategorie={handleChangementCategorie}
-                    dataCritiqueState={[dataCritiques, setDataCritiques]}
-                    dataOiseauState={[dataOiseau, setDataOiseau]}
-                    oiseauxFiltre={oiseauxFiltre}
-                    ouvertStatistiquesState={ouvertStatistiquesState}
-                />
-                <CatalogueOiseaux
-                    oiseauxFiltre={oiseauxFiltre}
-                    dataOiseauState={[dataOiseau, setDataOiseau]}
-                    dataCritiqueState={[dataCritiques, setDataCritiques]}
-                    tuerOiseau={handleTuerOiseau}
-                    ouvertStatistiquesState={ouvertStatistiquesState}
-                />
+                    <Navbar
+                        surChangementCategorie={handleChangementCategorie}
+                        dataCritiqueState={[dataCritiques, setDataCritiques]}
+                        dataOiseauState={[dataOiseau, setDataOiseau]}
+                        oiseauxFiltre={oiseauxFiltre}
+                        ouvertStatistiquesState={ouvertStatistiquesState}
+                    />
+                    <CatalogueOiseaux
+                        oiseauxFiltre={oiseauxFiltre}
+                        dataOiseauState={[dataOiseau, setDataOiseau]}
+                        dataCritiqueState={[dataCritiques, setDataCritiques]}
+                        tuerOiseau={handleTuerOiseau}
+                        ouvertStatistiquesState={ouvertStatistiquesState}
+                    />
                 </DataCritiqueContext.Provider>
             </DataoiseauContext.Provider>
         </>
