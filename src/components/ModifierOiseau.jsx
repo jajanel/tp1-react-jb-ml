@@ -9,7 +9,7 @@ export default function ModifierOiseau(props) {
     const [dataOiseaux, setDataOiseaux] = useContext(DataoiseauContext);
 
     function dateFormat(date) {
-        return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
     }
 
     function changerOiseau(event) {
@@ -22,7 +22,7 @@ export default function ModifierOiseau(props) {
             race: formData.get("race"),
             prix: formData.get("prix"),
             origine: formData.get("origine"),
-            datePublication: dateFormat(new Date),
+            datePublication: props.date,
             srcImage: formData.get("imageChoisi").name
         }
 

@@ -22,6 +22,7 @@ class GestionCatalogueOiseaux {
             this.oiseaux[index] = { ...this.oiseaux[index], ...oiseauModifie };
             this.sauvegarder();
         }
+
     }
 
     // Supprimer un oiseau de la liste et ses critiques
