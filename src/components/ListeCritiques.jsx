@@ -1,8 +1,12 @@
 import MaCritique from "./MaCritique.jsx";
 import CritiquePrecedente from "./CritiquePrecedente.jsx";
 import {ajouterCritique, newIdCritique} from "../classes/gestionCatalogueCritique.js";
+import {useContext} from "react";
+import {DataCritiqueContext} from "./contexts/DataCritiqueContext.jsx";
 
 export default function ListeCritiques(props) {
+    const [dataCritique, setDataCritique] = useContext(DataCritiqueContext);
+
 
     //Création du format de la date pour affichage correct
     function dateFormat(date) {
@@ -31,14 +35,13 @@ export default function ListeCritiques(props) {
 
         // Vérifier si les champs sont vides
         if(verifierInfos(nouvelleCritique)){
+            setDataCritique(critique=> critique.concat(nouvelleCritique));
             ajouterCritique(nouvelleCritique);
             alert("La critique #" + idCritique + " a été créée");
         }
         else{
             alert("un ou plusieurs champs sont vides")
         }
-
-
     }
 
     /**
@@ -52,10 +55,9 @@ export default function ListeCritiques(props) {
         if(critique.beaute === "" || critique.temperament === "" || critique.utilisation === ""){
             confirme = false;
         }
-
         return confirme;
     }
-   
+
     return (
         <>
             <div>
@@ -72,7 +74,7 @@ export default function ListeCritiques(props) {
                                 <div className="col my-2">
                                     <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
                                     <hr/>
-                                    {props.dataCritiques.map((critique) => (
+                                    {dataCritique.filter(critique => critique.idOiseau === props.id).map((critique) => (
                                         <CritiquePrecedente
                                             key={critique.idCritique}
                                             idCritique={critique.idCritique}
