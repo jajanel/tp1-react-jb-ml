@@ -10,16 +10,11 @@ export default function CarteProduit(props) {
     const [estOuvertDescription, setEstOuvertDescription] = useState(false);
     const [estOuvertCritique, setEstOuvertCritique] = useState(false);
     const [estOuvertConfirmation, setEstOuvertConfirmation] = useState(false);
-    const [estOuvertModifDescription, setEstOuvertModifDescription] = useState(false);
     const [oiseauASupprimer, setOiseauASupprimer] = useState(null);
     //const [dataCritiques, setDataCritiques] = useContext(DataoiseauContext);
 
     const toggleModalDescription = () => {
         setEstOuvertDescription(!estOuvertDescription);
-    };
-
-    const toggleModalModifDescription = () => {
-        setEstOuvertModifDescription(!estOuvertModifDescription);
     };
 
     const toggleModalCritique = () => {
@@ -64,8 +59,6 @@ export default function CarteProduit(props) {
                         srcImage={props.srcImage}
                         estOuvertDescription={estOuvertDescription}
                         toggleModalDescription={toggleModalDescription}
-                        toggleModalModifDescription={toggleModalModifDescription}
-                        estOuvertModifDescription={estOuvertModifDescription}
                     />
                     <a className="btn btn-sm btn-info shadow boutonCarte" onClick={toggleModalCritique}> critiques</a>
                     <ListeCritiques

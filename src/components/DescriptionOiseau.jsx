@@ -1,4 +1,12 @@
+import ModifierOiseau from "./ModifierOiseau.jsx";
+import {useState} from "react";
+
 export default function DescriptionOiseau(props) {
+    const [estOuvertModifDescription, setEstOuvertModifDescription] = useState(false);
+
+    const toggleModalModifDescription = () => {
+        setEstOuvertModifDescription(!estOuvertModifDescription);
+    };
 
 // Changer le "disabled" par un context ou redux pour permettre la modification des champs selon le bouton modifier cliqué ou non.
     return (
@@ -33,25 +41,11 @@ export default function DescriptionOiseau(props) {
                                                 <select
                                                     className="form-select" disabled>
                                                     <option defaultValue={props.categorie}>{props.categorie}</option>
-                                                    {/*Ici il faut utiliser une .map sur les différentes catégories existante.
-                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
-                                                    <option value="">Poule</option>
-                                                    <option value="">Canard</option>
-                                                    <option value="">Oie</option>
-                                                    <option value="">Dinde</option>
                                                 </select>
                                             </div>
                                             <div className="pb-4">
                                                 <label htmlFor="race" className="form-label">Race</label>
-                                                <select className="form-select" disabled>
-                                                    <option defaultValue={props.race}> {props.race}</option>
-                                                    {/*Ici il faut utiliser une .map sur les différentes catégories existante.
-                                                     La catégorie en cours ne sera pas en double dans la liste de choix à sélectionner*/}
-                                                    <option value="">Poule</option>
-                                                    <option value="">Canard</option>
-                                                    <option value="">Oie</option>
-                                                    <option value="">Dinde</option>
-                                                </select>
+                                                <input value={props.race} type="text" className="form-control" id="race" name="race" disabled/>
                                             </div>
                                             <div className="pb-4">
 
@@ -79,8 +73,6 @@ export default function DescriptionOiseau(props) {
                                                 <input disabled type="date" className="form-control disabled" id="datePublication" name="datePublication" value={props.date}/>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                                 <div className="row">
@@ -88,8 +80,8 @@ export default function DescriptionOiseau(props) {
                                         className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
                                         <button className="btn btn-danger" onClick={props.toggleModalDescription}>Annuler</button>
                                         {props.estOuvertModifDescription ?
-                                            <button className="btn btn-success" onClick={props.toggleModalModifDescription}>Confirmer</button> :
-                                            <button className="btn btn-success" onClick={props.toggleModalModifDescription}>Modifier</button>
+                                            <button className="btn btn-success" onClick={toggleModalModifDescription}>Confirmer</button> :
+                                            <button className="btn btn-success" onClick={toggleModalModifDescription}>Modifier</button>
                                         }
 
                                     </div>
@@ -98,6 +90,17 @@ export default function DescriptionOiseau(props) {
                         </div>
                     )}
             </div>
+            <ModifierOiseau
+                id={props.id}
+                categorie={props.categorie}
+                race={props.race}
+                prix={props.prix}
+                origine={props.origine}
+                date={props.date}
+                srcImage={props.srcImage}
+                toggleModalModifDescription={toggleModalModifDescription}
+                estOuvertModifDescription={estOuvertModifDescription}
+            />
         </>
     )
 }
