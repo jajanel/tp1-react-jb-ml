@@ -9,7 +9,7 @@ export default function AjouterOiseau(props) {
     const [dataOiseaux, setDataOiseaux] = useContext(DataoiseauContext);
 
     function dateFormat(date) {
-        return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
     }
 
     function creerOiseau(event) {

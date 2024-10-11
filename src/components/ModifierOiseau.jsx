@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import { getOiseaux, ajouterOiseau } from "../classes/gestionCatalogueOiseaux.js";
+import { getOiseaux, modifierOiseau } from "../classes/gestionCatalogueOiseaux.js";
 import {DataoiseauContext} from "./contexts/DataOiseauContext.jsx";
 import Oiseau from "../classes/Oiseau.js";
 
@@ -12,13 +12,12 @@ export default function ModifierOiseau(props) {
         return date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     }
 
-    function creerOiseau(event) {
+    function changerOiseau(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
-        let idOiseau = getOiseaux().length + 1;
 
         const nouveauOiseau = {
-            idOiseau: idOiseau,
+            idOiseau: props.id,
             categorie: formData.get("categorie"),
             race: formData.get("race"),
             prix: formData.get("prix"),
@@ -29,9 +28,9 @@ export default function ModifierOiseau(props) {
 
         if(verrifierInfos(nouveauOiseau)){
             setDataOiseaux(oiseaux=> oiseaux.concat(nouveauOiseau))
-            ajouterOiseau(nouveauOiseau);
-            alert("L'oiseau #" + idOiseau + " a été créée");
-            props.toggleModal();
+            modifierOiseau(props.id, nouveauOiseau);
+            alert("L'oiseau #" + props.id + " a été modifié");
+            props.toggleModalModifDescription();
         }
 
         else {
@@ -68,7 +67,7 @@ export default function ModifierOiseau(props) {
     return (<>
         <div>
             {props.estOuvertModifDescription && (<div className="popup">
-                <form id="oiseauForm" onSubmit={creerOiseau}>
+                <form id="oiseauForm" onSubmit={changerOiseau}>
                     <div className="card border-0">
                         <div className="card-header bg-white">
                             <h5 className="card-title text-uppercase">Modifier l'oiseau #{props.id}</h5>
@@ -99,16 +98,16 @@ export default function ModifierOiseau(props) {
                                     </div>
                                     <div className="pb-4">
                                         <label htmlFor="race" className="form-label">Race</label>
-                                        <input value={props.race} type="text" className="form-control" id="race" name="race"/>
+                                        <input defaultValue={props.race} type="text" className="form-control" id="race" name="race"/>
                                     </div>
                                     <div className="pb-4">
                                         <label htmlFor="prix" className="form-label">Prix</label>
-                                        <input value={props.prix} type="number" className="form-control" id="prix" name="prix"/>
+                                        <input defaultValue={props.prix} type="number" className="form-control" id="prix" name="prix"/>
                                     </div>
                                     <div className="pb-4">
                                         <label htmlFor="origine" className="form-label">Origine</label>
                                         <select className="form-select" name="origine">
-                                            <option defaultValue="Choisir la région d'origine">Choisir la région d'origine</option>
+                                            <option defaultValue={props.origine}>Choisir la région d'origine</option>
                                             <option value="afrique">Afrique</option>
                                             <option value="amerique">Amérique</option>
                                             <option value="europe">Europe</option>
