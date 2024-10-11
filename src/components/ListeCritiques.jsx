@@ -24,9 +24,27 @@ export default function ListeCritiques(props) {
             dateCritique: dateFormat(new Date)
         }
 
-        ajouterCritique(nouvelleCritique);
+        if(verrifierInfos(nouvelleCritique)){
+            ajouterCritique(nouvelleCritique);
+            alert("La critique #" + idCritique + " a été créée");
+        }
+        else{
+            alert("un ou plusieurs champs sont vides")
+        }
+
+
     }
 
+
+    function verrifierInfos(critique){
+        let confirme = true;
+
+        if(critique.beaute === "" || critique.temperament === "" || critique.utilisation === ""){
+            confirme = false;
+        }
+
+        return confirme;
+    }
    
     return (
         <>
