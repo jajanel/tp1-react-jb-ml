@@ -27,22 +27,22 @@ export default function CatalogueStatistiques(props) {
                             <div className="card border-0 ">
                                 <div className="row text-center">
                                     <div className="card-header pb-3">
-                                        <h1 className="my-3 card-title text-center">Statistiques</h1>
-                                        <h6 className="card-subtitle"> Les oiseaux du catalogue ci-dessous sont maintenant triés par note.</h6>
+                                        <h2 className="my-3 card-title text-center display-4">Statistiques</h2>
+                                        <h6 className="card-subtitle display-6"> Les oiseaux du catalogue ci-dessous sont maintenant triés par note.</h6>
                                     </div>
                                     <hr/>
-                                    <div className="row d-flex text-center pb-3">
-                                        <div className="col">Tous:<br/> {moyennes.tous}/100</div>
-                                        <div className="col">Poules:<br/> {moyennes.poule}/100</div>
-                                        <div className="col">Canards:<br/> {moyennes.canard}/100</div>
-                                        <div className="col">Oies: <br/>{moyennes.oie}/100</div>
-                                        <div className="col">Dindes: <br/>{moyennes.dinde}/100</div>
+                                    <div className="row d-flex text-center p-5">
+                                        <div className="col noteOiseau">Tous:<br/> {moyennes.tous}/100</div>
+                                        <div className="col noteOiseau">Poules:<br/> {moyennes.poule}/100</div>
+                                        <div className="col noteOiseau">Canards:<br/> {moyennes.canard}/100</div>
+                                        <div className="col noteOiseau">Oies: <br/>{moyennes.oie}/100</div>
+                                        <div className="col noteOiseau">Dindes: <br/>{moyennes.dinde}/100</div>
                                     </div>
                                     <hr/>
                                 </div>
                                 <div className="row">
                                     <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
-                                        <button className="btn btn-dark " onClick={() => props.fermerStatistiquesToggle()}>Fermer le mode statistique</button>
+                                        <button className="btn btn-dark btn-lg" onClick={() => props.fermerStatistiquesToggle()}>Fermer le mode statistique</button>
                                     </div>
                                 </div>
                             </div>
