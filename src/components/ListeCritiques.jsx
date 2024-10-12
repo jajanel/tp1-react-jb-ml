@@ -62,17 +62,17 @@ export default function ListeCritiques(props) {
         <>
             <div>
                 {props.estOuvertCritique && (
-                    <div className="popup">
+                    <div className="popup bg-dark-subtle">
                         <MaCritique
                             id={props.id}
                             categorie={props.categorie}
                             race={props.race}
                             creerCritique={creerCritique}
                         />
-                        <div className="card border-0 my-4">
+                        <div className="  my-4">
                             <div className="row text-start m-4">
                                 <div className="col my-2">
-                                    <h5 className="text-uppercase card-title">Visualiser les critiques</h5>
+                                    <h5 className="text-uppercase display-6 m-3 text-start">Visualiser les critiques</h5>
                                     <hr/>
                                     {dataCritique.filter(critique => critique.idOiseau === props.id).map((critique) => (
                                         <CritiquePrecedente
@@ -88,9 +88,9 @@ export default function ListeCritiques(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row px-4">
                             <div className="btn-wrapper text-center d-flex justify-content-start modal-footer">
-                                <button className="btn btn-danger" onClick={props.toggleModalCritique}>Fermer</button>
+                                <button className="btn btn-danger btn-lg" onClick={props.toggleModalCritique}>Fermer</button>
                             </div>
                         </div>
                     </div>

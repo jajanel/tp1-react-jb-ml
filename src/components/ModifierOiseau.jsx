@@ -72,25 +72,23 @@ export default function ModifierOiseau(props) {
 
     return (<>
         <div>
-            {props.estOuvertModifDescription && (<div className="popup">
+            {props.estOuvertModifDescription && (<div className="popup bg-warning-subtle">
                 <form id="oiseauForm" onSubmit={changerOiseau}>
-                    <div className="card border-0">
-                        <div className="card-header bg-white">
-                            <h5 className="card-title text-uppercase">Modifier l'oiseau #{props.id}</h5>
-                        </div>
+                            <h5 className="text-uppercase display-6 m-3 text-start">Modifier l'oiseau #{props.id}</h5>
+                    <hr/>
                         <div className="card-body">
                             <div className="row">
                                 <div className="col-xl-4 col-xxl-3 col-md-12 col-lg-6 align-content-center">
                                     <div className="ajouterPhoto rounded-3 text-start">
-                                        <label htmlFor="formFile" className="form-label">Choisir votre image</label>
+                                        <h4  className="form-label">Choisir votre image</h4>
                                         <img src={srcImgForm} className="card-img image-choisie" alt="image selectionnée par l'utilisateur"/>
-                                        <input className="form-control form-control mb-5" id="imageChoisi" name="imageChoisi" type="file" accept="image/*" onChange={handleChoixImage}/>
+                                        <input className="form-control form-select-lg mb-5" id="imageChoisi" name="imageChoisi" type="file" accept="image/*" onChange={handleChoixImage}/>
                                     </div>
                                 </div>
                                 <div className="col mx-5">
                                     <div className="pb-4 text-start">
-                                        <label htmlFor="categorie" className="form-label">Catégorie</label>
-                                        <select className="form-select" name="categorie">
+                                        <h4  className="form-label">Catégorie</h4>
+                                        <select className="form-select form-select-lg" name="categorie">
                                             <option defaultValue="Choisir la catégorie de volaille">Choisir la catégorie de volaille</option>
                                             <option value="poule">Poule</option>
                                             <option value="canard">Canard</option>
@@ -99,16 +97,20 @@ export default function ModifierOiseau(props) {
                                         </select>
                                     </div>
                                     <div className="pb-4 text-start">
-                                        <label htmlFor="race" className="form-label">Race</label>
-                                        <input defaultValue={props.race} type="text" className="form-control" id="race" name="race"/>
+                                        <h4  className="form-label">Race</h4>
+                                        <input defaultValue={props.race} type="text" className="form-control form-select-lg" id="race" name="race"/>
                                     </div>
                                     <div className="pb-4 text-start">
-                                        <label htmlFor="prix" className="form-label">Prix</label>
-                                        <input defaultValue={props.prix} type="number" className="form-control" id="prix" name="prix"  min={0} max={10000}/>
+                                        <h4 className="form-label">Prix</h4>
+                                        <div className="input-group">
+                                            <span className="input-group-text">$</span>
+                                            <input type="text" className="form-control form-control-lg"
+                                                   defaultValue={props.prix} min={0} max={10000} name="prix"/>
+                                        </div>
                                     </div>
                                     <div className="pb-4 text-start">
-                                        <label htmlFor="origine" className="form-label">Origine</label>
-                                        <select className="form-select" name="origine">
+                                        <h4 className="form-label">Origine</h4>
+                                        <select className="form-select form-select-lg " name="origine">
                                             <option defaultValue={props.origine}>Choisir la région d'origine</option>
                                             <option value="afrique">Afrique</option>
                                             <option value="amerique">Amérique</option>
@@ -118,18 +120,17 @@ export default function ModifierOiseau(props) {
                                         </select>
                                     </div>
                                     <div className="pb-4 text-start">
-                                        <label htmlFor="datePublication" className="form-label">Date de publication</label>
-                                        <br/>
-                                        <input disabled value={props.date} type="date" className="form-control" id="datePublication" name="datePublication" />
+                                        <h4 className="form-label">Date de publication</h4>
+                                        <input disabled value={props.date} type="date" className="form-control form-select-lg" id="datePublication" name="datePublication" />
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <hr/>
                         <div className="row">
                             <div className="btn-wrapper text-center d-flex justify-content-evenly modal-footer">
-                                <button className="btn btn-danger" type="button"
+                                <button className="btn btn-danger btn-lg" type="button"
                                         onClick={props.toggleModalModifDescription}>Annuler</button>
-                                <button className="btn btn-success" type="submit"> Confirmer</button>
+                                <button className="btn btn-success btn-lg" type="submit"> Confirmer</button>
                             </div>
                         </div>
                     </div>

@@ -41,7 +41,7 @@ export default function CarteProduit(props) {
 
     return (
         <>
-            <div className="card m-3 border-primary border-2 bg-secondary shadow">
+            <div className="card m-3 border-dark border-3 bg-secondary shadow-lg">
                 <img src={props.srcImage} className="card-img-top" alt="image d'oiseau" />
                 <div className="card-body">
                     <h4 className="card-title text-uppercase">{props.categorie} {props.race}</h4>

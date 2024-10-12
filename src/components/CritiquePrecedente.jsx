@@ -13,26 +13,26 @@ export default function CritiquePrecedente(props) {
     };
 
     return (
-        <div className="bg-light rounded-3 p-2 my-5">
+        <div className=" rounded-3 p-2 my-5">
             <div className="pb-4">
-                <label className="form-label">ID de la critique</label>
-                <input type="text" className="form-control" id="note" disabled value={props.idCritique} />
+                <h4 className="form-label">ID de la critique</h4>
+                <input type="text" className="form-control form-select-lg" id="note" disabled value={props.idCritique} />
             </div>
             <div className="pb-4">
-                <label className="form-label">Note globale:</label>
-                <input type="number" className="form-control" id="note" disabled value={props.note} />
+                <h4 className="form-label">Note globale:</h4>
+                <input type="number" className="form-control form-select-lg" id="note" disabled value={props.note} />
             </div>
             <div className="pb-4">
-                <label className="form-label">Tempérament:</label>
-                <input type="text" className="form-control" id="temperament" value={props.temperament} disabled />
+                <h4 className="form-label">Tempérament:</h4>
+                <input type="text" className="form-control form-select-lg" id="temperament" value={props.temperament} disabled />
             </div>
             <div className="pb-4">
-                <label className="form-label">Beauté:</label>
-                <input type="text" className="form-control" id="beaute" disabled value={props.beaute} />
+                <h4 className="form-label">Beauté:</h4>
+                <input type="text" className="form-control form-select-lg" id="beaute" disabled value={props.beaute} />
             </div>
             <div className="pb-4">
-                <label className="form-label">Utilisation:</label>
-                <input type="text" className="form-control" id="utilisation" disabled value={props.utilisation} />
+                <h4 className="form-label">Utilisation:</h4>
+                <input type="text" className="form-control form-select-lg" id="utilisation" disabled value={props.utilisation} />
             </div>
             <hr />
             <div className="btn-wrapper text-center d-flex justify-content-between">
