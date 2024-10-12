@@ -21,32 +21,32 @@ export default function Navbar(props) {
         <>
             <nav className="navbar navbar-expand-lg bg-primary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" onClick={() => handleChoixCategorie("tous")}>Critique Oiso</a>
+                    <button className="btn navbar-brand rounded-3 px-4 text-uppercase btn-outline-light bg-light" onClick={() => handleChoixCategorie("tous")}>Critique Oiso</button>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                             aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarScroll">
-                        <ul className="navbar-nav me-auto my-2 my-lg-0">
+                        <ul className="navbar-nav me-auto my-2 my-lg-0 ">
                             <li className="nav-item">
-                                <a className="nav-link" onClick={() => handleChoixCategorie("tous")}>Tous</a>
+                                <button className="btn btn-secondary mx-2" onClick={() => handleChoixCategorie("tous")}>Tous</button>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" onClick={() => handleChoixCategorie("poule")}>Poules</a>
+                                <button className="btn btn-secondary  mx-2" onClick={() => handleChoixCategorie("poule")}>Poules</button>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" onClick={() => handleChoixCategorie("canard")}>Canards</a>
+                                <button className="btn btn-secondary  mx-2" onClick={() => handleChoixCategorie("canard")}>Canards</button>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" onClick={() => handleChoixCategorie("oie")}>Oies</a>
+                                <button className="btn btn-secondary mx-2" onClick={() => handleChoixCategorie("oie")}>Oies</button>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" onClick={() => handleChoixCategorie("dinde")}>Dindes</a>
+                                <button className="btn btn-secondary mx-2" onClick={() => handleChoixCategorie("dinde")}>Dindes</button>
                             </li>
                         </ul>
                         <div >
-                            <button onClick={toggleModalStatistiques} className="btn btn-secondary" type="button">Statistiques</button>
+                            <button onClick={toggleModalStatistiques} className="btn btn-success" type="button">Statistiques</button>
                         </div>
                     </div>
                 </div>
