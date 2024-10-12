@@ -8,6 +8,7 @@ import {filtrerEtMettreAJourOiseaux, supprimerOiseau} from "./classes/gestionCat
 import  {filtrerEtMettreAJourCritiques} from "./classes/gestionCatalogueCritique.js";
 import {DataoiseauContext} from "./components/contexts/DataOiseauContext.jsx";
 import {DataCritiqueContext} from "./components/contexts/DataCritiqueContext.jsx";
+import Footer from "./components/Footer.jsx";
 
 // Fonction pour obtenir les données du local storage ou utiliser les données par défaut
 const getDonneesLocalStorage = (key, donneesParDefaut) => {
@@ -79,6 +80,7 @@ function App() {
                     />
                 </DataCritiqueContext.Provider>
             </DataoiseauContext.Provider>
+            <Footer/>
         </>
     );
 }
